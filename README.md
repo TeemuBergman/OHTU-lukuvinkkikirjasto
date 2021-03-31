@@ -1,6 +1,7 @@
 ## Ohjelmistotuotanto 2021 Kevät
 
 Tämä repositorio on Helsingin yliopiston Ohjelmistotuotanto-kurssin miniprojektille suunnattu. 
+
 **Ryhmä C**
 
 ### Lukuvinkkisovellus 
@@ -20,3 +21,16 @@ Kun projekti on kloonattu koneelle, asenna riippuvuudet ja alusta virtuaaliympä
 ```bash
 poetry install
 ```
+
+Tämän jälkeen siirry alihakemistoon **src** komennolla
+
+```bash
+cd src
+```
+Hakemistossa aja komento
+
+```bash
+flask run
+```
+
+Sovelluksen pitäisi aueta localhostiin osoitteeseen [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
