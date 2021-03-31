@@ -1,10 +1,12 @@
 from flask import Flask
 from flask import redirect,render_template,request
-import tips
+from tips import Tips
 from app import app
 
 @app.route("/", methods=["GET","POST"])
 def home():
+  tips = Tips()
+
   if request.method=="GET":
     return render_template("home.html")
   if request.method=="POST":
