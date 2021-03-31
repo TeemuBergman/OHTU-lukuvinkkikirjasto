@@ -5,5 +5,5 @@ Tämä repositorio on Helsingin yliopiston Ohjelmistotuotanto-kurssin miniprojek
 
 ### Lukuvinkkisovellus 
 
-
+-
 
