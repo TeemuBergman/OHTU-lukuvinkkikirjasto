@@ -20,3 +20,4 @@ Kun projekti on kloonattu koneelle, asenna riippuvuudet ja alusta virtuaaliympä
 ```bash
 poetry install
 ```
+
