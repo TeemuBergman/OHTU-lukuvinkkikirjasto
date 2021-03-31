@@ -9,7 +9,11 @@ class Tips():
 
   def add_tip(self, name:str, url:str):
     allowed_name_chars = string.ascii_letters + string.digits + "åäöÅÄÖ .,@%_"
+<<<<<<< HEAD
     allowed_url_chars = string.ascii_letters + string.digits + "%/:.@?_=-"
+=======
+    allowed_url_chars = string.ascii_letters + string.digits + "%/:.@?_=-&+#"
+>>>>>>> haara
         
     if (self.validate(name, allowed_name_chars, 100) and 
         self.validate(url, allowed_url_chars, 200)
