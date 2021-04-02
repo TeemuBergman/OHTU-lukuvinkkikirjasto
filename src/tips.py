@@ -11,19 +11,9 @@ class Tips():
     self.allowed_name_length = 100
     self.allowed_url_length = 200
 
-<<<<<<< HEAD
-  def add_tip(self, name:str, url:str):
-    allowed_name_chars = string.ascii_letters + string.digits + "åäöÅÄÖ .,@%_"
-    allowed_url_chars = string.ascii_letters + string.digits + "%/:.@?_=-&+#"
-
-        
-    if (self.validate(name, allowed_name_chars, 100) and 
-        self.validate(url, allowed_url_chars, 200)
-=======
   def add_tip(self, name:str, url:str):        
     if (self.validate(name, self.allowed_name_chars, self.allowed_name_length) and 
         self.validate(url, self.allowed_url_chars, self.allowed_url_length)
->>>>>>> testit
     ):
       return self.db_handler.insert({"name":name, "url":url})
       
