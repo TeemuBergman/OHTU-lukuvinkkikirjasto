@@ -1,7 +1,7 @@
 
 import sqlite3 
 
-class db_wrapper():
+class Db_Wrapper():
     def __init__(self):
         
         self.init_db()
@@ -30,4 +30,4 @@ class db_wrapper():
         return self.__do_query(query, {"name":fields["name"], "url":fields["url"]})
        
 
-db_wrapper = db_wrapper()
+db_wrapper = Db_Wrapper()
