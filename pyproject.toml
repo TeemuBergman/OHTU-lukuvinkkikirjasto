@@ -9,10 +9,7 @@ python = "^3.6"
 Flask = "^1.1.2"
 
 [tool.poetry.dev-dependencies]
-<<<<<<< HEAD
-=======
 coverage = "^5.5"
->>>>>>> testit
 pytest = "^6.2.2"
 
 [build-system]
