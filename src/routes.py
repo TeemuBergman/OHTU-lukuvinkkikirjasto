@@ -10,17 +10,16 @@ tips = Tips()
 def home():
 
     if request.method == "GET":
-        return render_template("home.html")
+        existing_tips = tips.db_handler.display_all_tips()
+        existing_tips = existing_tips[1].fetchall()
+        return render_template("home.html", existing_tips=existing_tips)
+
     if request.method == "POST":
         tip_name = request.form["tip_name"]
         tip_url = request.form["tip_url"]
 
-        new_tips = tips.add_tip(tip_name, tip_url)
-
-        if new_tips:  # jos tallennus onnistui, näytetään olemassa olevat tipsit sivun ylälaidassa
-            existing_tips = tips.db_handler.display_all_tips()
-            existing_tips = existing_tips[1].fetchall()
-            return render_template("home.html", existing_tips=existing_tips)
+        if tips.add_tip(tip_name, tip_url):
+            return redirect("/")
 
         else:
             return render_template("error.html", message="Vinkin tallennus epäonnistui")
