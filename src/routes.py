@@ -1,18 +1,36 @@
 from flask import Flask
-from flask import redirect,render_template,request
+from flask import redirect, render_template, request
 from tips import Tips
 from app import app
 
-@app.route("/", methods=["GET","POST"])
-def home():
-  tips = Tips()
+tips = Tips()
 
-  if request.method=="GET":
-    return render_template("home.html")
-  if request.method=="POST":
-    tip_name = request.form["tip_name"]
-    tip_url = request.form["tip_url"]
-    if tips.add_tip(tip_name, tip_url):
-      return redirect("/")
-    else:
-      return render_template("error.html", message="Vinkin tallennus epäonnistui")
+
+@app.route("/", methods=["GET", "POST"])
+def home():
+
+    if request.method == "GET":
+        return render_template("home.html")
+    if request.method == "POST":
+        tip_name = request.form["tip_name"]
+        tip_url = request.form["tip_url"]
+
+        new_tips = tips.add_tip(tip_name, tip_url)
+
+        if new_tips:  # jos tallennus onnistui, näytetään olemassa olevat tipsit sivun ylälaidassa
+            existing_tips = tips.db_handler.display_all_tips()
+            existing_tips = existing_tips[1].fetchall()
+            return render_template("home.html", existing_tips=existing_tips)
+
+        else:
+            return render_template("error.html", message="Vinkin tallennus epäonnistui")
+
+
+@app.route("/results", methods=["GET"])
+def result():
+    tip_name = request.args["tip_name"]
+    search_by_name = tips.db_handler
+    search_by_name = search_by_name.search_by_writer_name(tip_name)
+    search_by_name = search_by_name[1].fetchall()
+
+    return render_template("results.html", search_by_name=search_by_name)
