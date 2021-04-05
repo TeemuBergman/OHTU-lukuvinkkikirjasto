@@ -1,10 +1,9 @@
-
 from db_wrapper import db_wrapper as default_db_wrapper
 import string
 
 
 class Tips():
-    def __init__(self, db_handler=default_db_wrapper):
+    def __init__(self, db_handler = default_db_wrapper):
         self.db_handler = db_handler
         self.allowed_name_chars = string.ascii_letters + string.digits + "åäöÅÄÖ .,@%_"
         self.allowed_url_chars = string.ascii_letters + string.digits + "%/:.@?_=-"
@@ -15,7 +14,7 @@ class Tips():
         if (self.validate(name, self.allowed_name_chars, self.allowed_name_length) and
                 self.validate(url, self.allowed_url_chars,
                               self.allowed_url_length)
-            ):
+        ):
             return self.db_handler.insert({"name": name, "url": url})
 
         else:
