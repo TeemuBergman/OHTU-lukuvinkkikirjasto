@@ -1,5 +1,7 @@
 ## Ohjelmistotuotanto 2021 Kevät
 
+![GitHub Actions](https://github.com/HJJHeinonen/OHTU-lukuvinkkikirjasto/workflows/CI/badge.svg)
+
 Tämä repositorio on Helsingin yliopiston Ohjelmistotuotanto-kurssin miniprojektille suunnattu. 
 
 **Ryhmä C**
