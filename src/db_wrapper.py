@@ -27,7 +27,7 @@ class Db_Wrapper():
 
     def insert(self, fields: dict):
         query = "INSERT INTO lukuvinkit (name, url) VALUES (:name, :url)"
-        return self.__do_query(query, {"name": fields["name"], "url": fields["url"]})
+        return self.__do_query(query, {"name": fields["name"], "url": fields["url"]})[0]
 
     # Hakee kaikki olemassa olevat lukuvinkit tietokannasta, jotta ne voidaan esittää etusivulla
     def display_all_tips(self):
