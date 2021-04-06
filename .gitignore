@@ -5,3 +5,6 @@ htmlcov
 .idea/
 *.ini
 selenium-screenshot-*.png
+log.html
+output.xml
+report.html
