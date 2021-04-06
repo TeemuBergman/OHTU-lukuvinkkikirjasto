@@ -10,7 +10,7 @@ tips = Tips()
 def home():
 
     if request.method == "GET":
-        existing_tips = tips.db_handler.display_all_tips()
+        existing_tips = tips.display_all()
         existing_tips = existing_tips[1].fetchall()
         return render_template("home.html", existing_tips=existing_tips)
 
@@ -28,8 +28,7 @@ def home():
 @app.route("/results", methods=["GET"])
 def result():
     tip_name = request.args["tip_name"]
-    search_by_name = tips.db_handler
-    search_by_name = search_by_name.search_by_writer_name(tip_name)
+    search_by_name = tips.search_by_writer_name(tip_name)
     search_by_name = search_by_name[1].fetchall()
 
     return render_template("results.html", search_by_name=search_by_name)

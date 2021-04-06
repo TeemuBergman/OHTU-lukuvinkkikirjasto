@@ -3,7 +3,7 @@ import string
 
 
 class Tips():
-    def __init__(self, db_handler = default_db_wrapper):
+    def __init__(self, db_handler=default_db_wrapper):
         self.db_handler = db_handler
         self.allowed_name_chars = string.ascii_letters + string.digits + "åäöÅÄÖ .,@%_"
         self.allowed_url_chars = string.ascii_letters + string.digits + "%/:.@?_=-"
@@ -12,9 +12,9 @@ class Tips():
 
     def add_tip(self, name: str, url: str):
         if (self.validate(name, self.allowed_name_chars, self.allowed_name_length) and
-                self.validate(url, self.allowed_url_chars,
-                              self.allowed_url_length)
-        ):
+                    self.validate(url, self.allowed_url_chars,
+                                  self.allowed_url_length)
+                ):
             return self.db_handler.insert({"name": name, "url": url})
 
         else:
@@ -28,3 +28,11 @@ class Tips():
                 if character not in encoding:
                     return False
             return True
+
+    def display_all(self):
+        return self.db_handler.display_all_tips()
+
+    def search_by_writer_name(self, name: str):
+        if self.validate(name, self.allowed_name_chars, self.allowed_name_length):
+            if self.db_handler.search_by_writer_name(name)[0]:
+                return self.db_handler.search_by_writer_name(name)
