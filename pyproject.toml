@@ -7,6 +7,9 @@ authors = ["Mari Suomalainen <mariannikasuomalainen@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.6"
 Flask = "^1.1.2"
+robotframework = "^4.0"
+selenium = "^3.141.0"
+robotframework-selenium2library = "^3.0.0"
 
 [tool.poetry.dev-dependencies]
 coverage = "^5.5"

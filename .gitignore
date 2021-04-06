@@ -3,3 +3,5 @@ __pycache__
 htmlcov
 *.db
 .idea/
+*.ini
+selenium-screenshot-*.png
