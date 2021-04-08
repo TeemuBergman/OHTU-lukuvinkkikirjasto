@@ -27,7 +27,7 @@ def home():
 
 @app.route("/results", methods=["GET"])
 def result():
-    tip_name = request.args["tip_name"]
+    tip_name = request.args["tip_search"]
     search_by_name = tips.search_by_writer_name(tip_name)
     search_by_name = search_by_name[1].fetchall()
 

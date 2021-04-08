@@ -1,10 +1,8 @@
-
 import sqlite3
 
 
 class Db_Wrapper():
     def __init__(self):
-
         self.init_db()
 
     def __do_query(self, sql: str, fields: dict = {}):
@@ -37,8 +35,6 @@ class Db_Wrapper():
     # Hakee annetun kirjoittajan nimen perusteella tiedot
     def search_by_writer_name(self, nimi):
         query = "SELECT name, url FROM lukuvinkit WHERE name LIKE ?"
-
         return self.__do_query(query, (nimi,))
-
 
 db_wrapper = Db_Wrapper()

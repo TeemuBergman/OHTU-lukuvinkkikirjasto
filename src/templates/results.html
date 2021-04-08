@@ -8,18 +8,21 @@
 </head>
 <body>
   <h1>Haun tulokset:</h1>
-
   <h3>Listatut lukuvinkit:</h3>
-  <hr> {% for tip in search_by_name %}
-  Kirjoittaja: {{tip[0]}}, URL: {{tip[1]}} 
-  <hr>
-  {% endfor %}
-
+  <div id="results">
+    {% for tip in search_by_name %}
+    <hr>
+        <div id="result">
+            Kirjoittaja: {{tip[0]}}, URL: {{tip[1]}}
+        </div>
+    <hr>
+    {% endfor %}
+  </div>
   <form action="/">
     <input type="submit" value="Edellinen näkymä" />
 </form>
 
-  
+
 </body>
 
 </html>
