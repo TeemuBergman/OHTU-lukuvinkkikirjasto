@@ -32,3 +32,8 @@ def result():
     search_by_name = search_by_name[1].fetchall()
 
     return render_template("results.html", search_by_name = search_by_name)
+
+
+@app.route("/ping")
+def ping():
+    return "Pong"
