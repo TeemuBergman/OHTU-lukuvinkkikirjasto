@@ -1,7 +1,7 @@
 import sqlite3
 
 
-class Db_Wrapper():
+class DBWrapper:
     def __init__(self):
         self.init_db()
 
@@ -18,8 +18,8 @@ class Db_Wrapper():
             return False
         return True, results  # lisätään palautukseen myös results
 
+    # Tehdää uusi taulukko jos sitä ennestään ole.
     def init_db(self):
-        # Tehdää uusi taulukko jos sitä ennestään ole.
         query = "CREATE TABLE IF NOT EXISTS lukuvinkit (id INTEGER PRIMARY KEY, name TEXT NOT NULL, url TEXT);"
         self.__do_query(query)
 
@@ -37,4 +37,5 @@ class Db_Wrapper():
         query = "SELECT name, url FROM lukuvinkit WHERE name LIKE ?"
         return self.__do_query(query, (nimi,))
 
-db_wrapper = Db_Wrapper()
+
+db_wrapper = DBWrapper()

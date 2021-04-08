@@ -7,41 +7,35 @@
     <title>Home</title>
 </head>
 <body>
-  <h1>Lukuvinkkejä</h1>
-
-  <h3>Listatut lukuvinkit:</h3>
-  <hr> {% for tip in existing_tips %}
-  Kirjoittaja: {{tip[0]}}, URL: {{tip[1]}}
-  <hr>
-  {% endfor %}
-
-  <h3>Lisää lukuvinkki</h3>
-        <form action="/" method="post">
-            <br>
-            Kirjoittaja:
-            <br>
-            <textarea name="tip_name" rows="1" cols="50"></textarea>
-            <br>
-            Url:
-            <br>
-            <textarea name="tip_url" rows="1" cols="50"></textarea>
-            <br>
-            <input type="submit" name="action" value="Lisää" class="button">
-        </form>
-        <br>
-
+<h1>Lukuvinkkejä</h1>
+<h3>Listatut lukuvinkit:</h3>
+<hr>
+{% for tip in existing_tips %}
+Kirjoittaja: {{tip[0]}}, URL: {{tip[1]}}
+<hr>
+{% endfor %}
+<h3>Lisää lukuvinkki</h3>
+<form action="/" method="post">
+    <br>
+    Kirjoittaja:
+    <br>
+    <textarea name="tip_name" rows="1" cols="50"></textarea>
+    <br>
+    Url:
+    <br>
+    <textarea name="tip_url" rows="1" cols="50"></textarea>
+    <br>
+    <input type="submit" name="action" value="Lisää" class="button">
+</form>
+<br>
 <h3>Hae lukuvinkki</h3>
-        <form action="/results" method="GET">
-            <br>
-            Kirjoittajan nimi:
-            <br>
-            <textarea name="tip_search" rows="1" cols="50"></textarea>
-            <br>
-            <input type="submit" name="action" value="Hae" class="button">
-        </form>
-
-
-
+<form action="/results" method="GET">
+    <br>
+    Kirjoittajan nimi:
+    <br>
+    <textarea name="tip_search" rows="1" cols="50"></textarea>
+    <br>
+    <input type="submit" name="action" value="Hae" class="button">
+</form>
 </body>
-
 </html>
