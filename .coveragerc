@@ -1,5 +1,6 @@
 [run]
 omit = 
     *index.py
+    *_library.py
     *tests*
 source = src
