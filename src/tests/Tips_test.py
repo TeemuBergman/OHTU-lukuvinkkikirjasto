@@ -43,3 +43,8 @@ class TestTips(unittest.TestCase):
         tip = self.tips.add_tip(
             "Arto=Paasilinna", "https://www.wsoy.fi/kirja/arto-paasilinna/hurmaava-joukkoitsemurha/9789510426111")
         self.assertEqual(tip, False)
+
+
+    def test_illegal_name_search_by_writer_name(self):
+        tip = self.tips.search_by_writer_name("Arto Paasilinna&")
+        self.assertEqual(tip, None)
