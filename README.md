@@ -9,6 +9,7 @@ Tämä repositorio on Helsingin yliopiston Ohjelmistotuotanto-kurssin miniprojek
 Sovelluksen tarkoitus on pystyä tallettamaan erinäisiä lukuvinkkejä, sekä selaamaan niitä.
 
 [Product & sprint backlog](https://docs.google.com/spreadsheets/d/1kFCFZe4UMkpglo9DqtTRXQ08rH0ui6qu4qKGbNE_1bk)
+[CI-palvelu](https://github.com/HJJHeinonen/OHTU-lukuvinkkikirjasto/actions/workflows/main.yml)
 
 
 ### Sovelluksen käynnistäminen
