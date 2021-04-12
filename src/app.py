@@ -7,12 +7,12 @@ app = Flask(__name__)
 tips = Tips()
 
 
-@app.route("/", methods = ["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "GET":
         existing_tips = tips.display_all()
         existing_tips = existing_tips[1].fetchall()
-        return render_template("home.html", existing_tips = existing_tips)
+        return render_template("home.html", existing_tips=existing_tips)
 
     if request.method == "POST":
         tip_name = request.form["tip_name"]
@@ -22,16 +22,15 @@ def home():
             return redirect("/")
 
         else:
-            return render_template("error.html", message = "Vinkin tallennus epäonnistui")
+            return render_template("error.html", message="Vinkin tallennus epäonnistui")
 
 
-@app.route("/results", methods = ["GET"])
+@app.route("/results", methods=["GET"])
 def result():
     tip_name = request.args["tip_search"]
-    search_by_name = tips.search_by_writer_name(tip_name)
-    search_by_name = search_by_name[1].fetchall()
+    formatted_searches = tips.search_by_writer_name(tip_name)
 
-    return render_template("results.html", search_by_name = search_by_name)
+    return render_template("results.html", search_by_name=formatted_searches)
 
 
 @app.route("/ping")

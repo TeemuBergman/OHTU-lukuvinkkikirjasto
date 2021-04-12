@@ -3,7 +3,7 @@ import string
 
 
 class Tips:
-    def __init__(self, db_handler = default_db_wrapper):
+    def __init__(self, db_handler=default_db_wrapper):
         self.db_handler = db_handler
         self.allowed_name_chars = string.ascii_letters + string.digits + "åäöÅÄÖ .,@%_"
         self.allowed_url_chars = string.ascii_letters + string.digits + "%/:.@?_=-"
@@ -25,7 +25,7 @@ class Tips:
     # length = maximum length of field
     # min_length = minimum lenght of field
     def validate(self, field, encoding: str, length: int, min_length: int):
-        if len(field) <= length and len(field)>= min_length:
+        if len(field) <= length and len(field) >= min_length:
             for character in field:
                 if character not in encoding:
                     return False
@@ -37,4 +37,4 @@ class Tips:
     def search_by_writer_name(self, name: str):
         if self.validate(name, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length):
             if self.db_handler.search_by_writer_name(name)[0]:
-                return self.db_handler.search_by_writer_name(name)
+                return self.db_handler.search_by_writer_name(name)[1].fetchall()
