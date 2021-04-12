@@ -44,7 +44,7 @@ Sovellus on nyt käytettävissä selaimen osoitteessa [http://127.0.0.1:5000/](h
 
 Sovelluksessa on käytetty yksikkötestejä, sekä hyväksymistestejä Robot Frameworkin avulla. Sovellusta käynnistäessä ajettu **poetry install**-komento on asentanut testausta varten tarvittavat riippuvuudet.
 
-###### Yksikkötestit
+##### Yksikkötestit
 
 Yksikkötestien ajamista varten tulee olla projektihakemistossa virtuaaliympäristössä. Virtuaaliympäristöön pääset komennolla:
 

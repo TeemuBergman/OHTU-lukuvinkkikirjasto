@@ -15,7 +15,7 @@ Kirjoittaja: {{tip[0]}}, URL: {{tip[1]}}
 <hr>
 {% endfor %}
 <h3>Lisää lukuvinkki</h3>
-<form action="/" method="post">
+<form action="/" method="post" onsubmit="return check (this)">
     <br>
     Kirjoittaja:
     <br>
@@ -37,5 +37,28 @@ Kirjoittaja: {{tip[0]}}, URL: {{tip[1]}}
     <br>
     <input type="submit" name="action" value="Hae" class="button">
 </form>
+
+<script>
+  function check(form) {
+      if (form.tip_name.value.length >100) {
+          alert("Vinkin kirjoittajan maksimipituus on 100 merkkiä. Korjaathan kentän tiedot.");
+          return false;
+      }
+      if (form.tip_name.value.length<3){
+        alert("Vinkin kirjoittajan minimipituus on 3 merkkiä. Korjaathan kentän tiedot.");
+          return false;
+      }
+      if (form.tip_url.value.length>200){
+          alert("Vinkin URL:in maksimipituus on 200 merkkiä. Korjaathan kentän tiedot.");
+          return false;
+      }
+      if (form.tip_url.value.length<3){
+        alert("Vinkin URL:in minimipituus on 3 merkkiä. Korjaathan kentän tiedot.");
+          return false;
+      }
+      return true;
+  }
+
+</script>
 </body>
 </html>

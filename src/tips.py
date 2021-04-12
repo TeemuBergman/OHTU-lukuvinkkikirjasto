@@ -9,17 +9,18 @@ class Tips:
         self.allowed_url_chars = string.ascii_letters + string.digits + "%/:.@?_=-"
         self.allowed_name_length = 100
         self.allowed_url_length = 200
+        self.allowed_min_length = 3
 
     def add_tip(self, name: str, url: str):
-        if self.validate(name, self.allowed_name_chars, self.allowed_name_length) and \
-                self.validate(url, self.allowed_url_chars, self.allowed_url_length):
+        if self.validate(name, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length) and \
+                self.validate(url, self.allowed_url_chars, self.allowed_url_length, self.allowed_min_length):
             return self.db_handler.insert({"name": name, "url": url})
         else:
             print("not valid input")
             return False
 
-    def validate(self, field, encoding: str, length: int):
-        if len(field) <= length:
+    def validate(self, field, encoding: str, length: int, min_length: int):
+        if len(field) <= length and len(field)>= min_length:
             for character in field:
                 if character not in encoding:
                     return False
