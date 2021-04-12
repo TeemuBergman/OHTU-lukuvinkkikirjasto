@@ -35,6 +35,6 @@ class Tips:
         return self.db_handler.display_all_tips()
 
     def search_by_writer_name(self, name: str):
-        if self.validate(name, self.allowed_name_chars, 100, self.allowed_name_length):
+        if self.validate(name, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length):
             if self.db_handler.search_by_writer_name(name)[0]:
                 return self.db_handler.search_by_writer_name(name)
