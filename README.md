@@ -11,6 +11,17 @@ Sovelluksen tarkoitus on pystyä tallettamaan erinäisiä lukuvinkkejä, sekä s
 [Product & sprint backlog](https://docs.google.com/spreadsheets/d/1kFCFZe4UMkpglo9DqtTRXQ08rH0ui6qu4qKGbNE_1bk)
 [CI-palvelu](https://github.com/HJJHeinonen/OHTU-lukuvinkkikirjasto/actions/workflows/main.yml)
 
+### Definition of Done
+
+Yleisellä tasolla kuvatut laatuvaatimukset
+
+* User storyssa määritelty toiminnallisuus toimii halutulla tavalla ja se on integroitu muuhun ohjelmistoon
+* Sovellus tai sen testit eivät hajoa
+* Tehty yksikkötestausta ja hyväksymistestausta
+* Testattavan koodin testikattavuus kohtuullinen (vähintään n. 70%)
+* Asiakas pääsee näkemään koko ajan koodin ja testien tilanteen CI-palvelusta
+* Yhtenäinen koodityyli
+
 
 ### Sovelluksen käynnistäminen
 
