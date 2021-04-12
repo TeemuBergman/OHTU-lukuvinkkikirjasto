@@ -1,7 +1,6 @@
 *** Settings ***
 Library  FakerLibrary  WITH NAME  faker
 Library  SeleniumLibrary
-# Library  ../../TipsLibrary.py
 
 *** Variables ***
 ${SERVER}  localhost:5000
