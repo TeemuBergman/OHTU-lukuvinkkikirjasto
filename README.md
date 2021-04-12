@@ -6,11 +6,12 @@ Tämä repositorio on Helsingin yliopiston Ohjelmistotuotanto-kurssin miniprojek
 
 ### Lukuvinkkisovellus 
 
+Sovelluksen tarkoitus on pystyä tallettamaan erinäisiä lukuvinkkejä, sekä selaamaan niitä.
+
 [Product & sprint backlog](https://docs.google.com/spreadsheets/d/1kFCFZe4UMkpglo9DqtTRXQ08rH0ui6qu4qKGbNE_1bk)
 
-### Komentorivitoiminnot
 
-#### Sovelluksen käynnistäminen
+### Sovelluksen käynnistäminen
 
 Sovellus käyttää riippuvuuksien hallintaan poetrya, joka tulisi löytyä koneeltasi. Mikäli sinulla ei ole poetrya asennettuna, poetry tarjoaa dokumentaatiossaan useita [asennusvaihtoehtoja](https://python-poetry.org/docs/#installation). Voit tarkistaa, että poetry on asennettu koneellesi komennolla:
 ```
@@ -40,11 +41,11 @@ flask run
 
 Sovellus on nyt käytettävissä selaimen osoitteessa [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
-#### Testaus
+### Testaus
 
 Sovelluksessa on käytetty yksikkötestejä, sekä hyväksymistestejä Robot Frameworkin avulla. Sovellusta käynnistäessä ajettu **poetry install**-komento on asentanut testausta varten tarvittavat riippuvuudet.
 
-##### Yksikkötestit
+#### Yksikkötestit
 
 Yksikkötestien ajamista varten tulee olla projektihakemistossa virtuaaliympäristössä. Virtuaaliympäristöön pääset komennolla:
 
@@ -57,7 +58,7 @@ Tämän jälkeen testit voi ajaa komennolla:
 pytest
 ```
 
-##### Hyväksymistestit
+#### Hyväksymistestit
 
 Hyväksymistestien ajamista varten Flask-palvelimen on oltava käynnissä. Mennään ensin virtuaaliympäristöön komennolla:
 
