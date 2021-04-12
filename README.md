@@ -32,7 +32,7 @@ cd src
 poetry shell
 ```
 
-Src-hakemistossa aja komento:
+Src-hakemistossa aja seuraava komento Flask-palvelimen käynnistämiseksi:
 
 ```bash
 flask run
@@ -40,7 +40,37 @@ flask run
 
 Sovellus on nyt käytettävissä selaimen osoitteessa [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
+#### Testaus
 
+Sovelluksessa on käytetty yksikkötestejä, sekä hyväksymistestejä Robot Frameworkin avulla. Sovellusta käynnistäessä ajettu **poetry install**-komento on asentanut testausta varten tarvittavat riippuvuudet.
+
+###### Yksikkötestit
+
+Yksikkötestien ajamista varten tulee olla projektihakemistossa virtuaaliympäristössä. Virtuaaliympäristöön pääset komennolla:
+
+```bash
+poetry shell
+```
+Tämän jälkeen testit voi ajaa komennolla:
+
+```bash
+pytest
+```
+
+##### Hyväksymistestit
+
+Hyväksymistestien ajamista varten Flask-palvelimen on oltava käynnissä. Mennään ensin virtuaaliympäristöön komennolla:
+
+```bash
+poetry shell
+```
+Tämän jälkeen testit voi ajaa komennolla:
+
+```bash
+robot src/tests/robotframework
+```
+
+**Mikäli testien ajaminen ei onnistu, tarkistathan, että suhteellinen polku hakemistoon on oikea**.
 
 
 
