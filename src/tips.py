@@ -1,4 +1,4 @@
-from dbwrapper import db_wrapper as default_db_wrapper
+from db_wrapper import db_wrapper as default_db_wrapper
 import string
 
 
