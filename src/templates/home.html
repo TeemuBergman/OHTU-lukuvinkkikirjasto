@@ -8,12 +8,7 @@
 </head>
 <body>
 <h1>Lukuvinkkejä</h1>
-<h3>Listatut lukuvinkit:</h3>
-<hr>
-{% for tip in existing_tips %}
-Kirjoittaja: {{tip[0]}}, URL: {{tip[1]}}
-<hr>
-{% endfor %}
+
 <h3>Lisää lukuvinkki</h3>
 <form action="/" method="post" onsubmit="return check (this)">
     <br>
@@ -37,6 +32,13 @@ Kirjoittaja: {{tip[0]}}, URL: {{tip[1]}}
     <br>
     <input type="submit" name="action" value="Hae" class="button">
 </form>
+
+<h3>Listatut lukuvinkit:</h3>
+<hr>
+{% for tip in existing_tips %}
+Kirjoittaja: {{tip[0]}}, URL: {{tip[1]}}
+<hr>
+{% endfor %}
 
 <script>
   function check(form) {
