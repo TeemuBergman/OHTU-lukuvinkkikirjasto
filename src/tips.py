@@ -11,10 +11,11 @@ class Tips:
         self.allowed_url_length = 200
         self.allowed_min_length = 3
 
-    def add_tip(self, name: str, url: str):
+    def add_tip(self, name: str, url: str, title: str):
         if self.validate(name, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length) and \
-                self.validate(url, self.allowed_url_chars, self.allowed_url_length, self.allowed_min_length):
-            return self.db_handler.insert({"name": name, "url": url})
+                self.validate(url, self.allowed_url_chars, self.allowed_url_length, self.allowed_min_length) and \
+                    self.validate(title, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length):
+            return self.db_handler.insert({"name": name, "url": url, "title": title})
         else:
             print("not valid input")
             return False
