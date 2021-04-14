@@ -26,12 +26,14 @@ class Tips:
     # min_length = minimum lenght of field
     def validate(self, field, encoding: str, max_length: int, min_length: int):
         if len(field) > max_length or len(field) < min_length:
-            print(f"Validate: fault: {field} is too long or short") #debug info
+            # debug info
+            print(f"Validate: fault: {field} is too long or short")
             return False
 
         for character in field:
             if character not in encoding:
-                print(f"Validate: fault: {character} is not in {encoding}") #debug info
+                # debug info
+                print(f"Validate: fault: {character} is not in {encoding}")
                 return False
 
         return True
