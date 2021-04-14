@@ -23,7 +23,6 @@ Yleisellä tasolla kuvatut laatuvaatimukset
 * Asiakas pääsee näkemään koko ajan koodin ja testien tilanteen CI-palvelusta
 * Yhtenäinen koodityyli
 
-
 ### Sovelluksen käynnistäminen
 
 Sovellus käyttää riippuvuuksien hallintaan poetrya, joka tulisi löytyä koneeltasi. Mikäli sinulla ei ole poetrya asennettuna, poetry tarjoaa dokumentaatiossaan useita [asennusvaihtoehtoja](https://python-poetry.org/docs/#installation). Voit tarkistaa, että poetry on asennettu koneellesi komennolla:
