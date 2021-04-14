@@ -24,6 +24,25 @@
 </form>
 <br>
 <h3>Rekisteröi uusi käyttäjä</h3>
-<form action="/register" method="GET" onsubmit="return check_search (this)">
+<form action="/register" method="GET">
     <input type="submit" name="action" value="Rekisteröidy" class="button">
 </form>
+<br>
+
+<script>
+    function check(form) {
+        if (form.username.value.length <3) {
+            alert("Käyttäjätunnuksen minimipituus on 3 merkkiä.")
+            return false
+        }
+        if (form.password.value.length<3){
+          alert("Salasanan minimipituus on 3 merkkiä. Korjaathan kentän tiedot.")
+            return false
+        }
+        return true
+    }
+  
+  
+  </script>
+  </body>
+  </html>

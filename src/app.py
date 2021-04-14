@@ -25,16 +25,16 @@ def home():
             return render_template("error.html", message="Vinkin tallennus epäonnistui.")
 
 
-@app.route("/login", methods=["POST"])
+@app.route("/login", methods=["GET"])
 def login():
     username = request.form["username"]
     password = request.form["password"]
 
-    if tips.add_tip(tip_name, tip_url):
-        return redirect("/")
+    # tähän kirjautumisen validointi, kun käyttäjä on valmis
+    return render_template("home.html")
 
     else:
-        return render_template("error.html", message="Vinkin tallennus epäonnistui.")
+        return render_template("error.html", message="Käyttäjän kirjautuminen epäonnistui")
 
 
 @app.route("/results", methods=["GET"])
