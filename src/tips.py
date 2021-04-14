@@ -1,9 +1,9 @@
-from db_wrapper import db_wrapper as default_db_wrapper
+from .db_wrapper import db_wrapper as default_db_wrapper
 import string
 
 
 class Tips:
-    def __init__(self, db_handler=default_db_wrapper):
+    def __init__(self, db_handler = default_db_wrapper):
         self.db_handler = db_handler
         self.allowed_name_chars = string.ascii_letters + string.digits + "åäöÅÄÖ .,@%_"
         self.allowed_url_chars = string.ascii_letters + string.digits + "%/:.@?_=-"
@@ -26,12 +26,12 @@ class Tips:
     # min_length = minimum lenght of field
     def validate(self, field, encoding: str, max_length: int, min_length: int):
         if len(field) > max_length or len(field) < min_length:
-            print(f"Validate: fault: {field} is too long or short") #debug info
+            print(f"Validate: fault: {field} is too long or short")  # debug info
             return False
 
         for character in field:
             if character not in encoding:
-                print(f"Validate: fault: {character} is not in {encoding}") #debug info
+                print(f"Validate: fault: {character} is not in {encoding}")  # debug info
                 return False
 
         return True
