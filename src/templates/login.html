@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+<h1>Kirjautuminen</h1>
+
+<h3>Kirjaudu sisään</h3>
+<form action="/login" method="GET" onsubmit="return check (this)">
+    <br>
+    Käyttäjänimi:
+    <br>
+    <textarea name="username" rows="1" cols="50"></textarea>
+    <br>
+    Salasana:
+    <br>
+    <textarea name="password" rows="1" cols="50"></textarea>
+    <br>
+    <input type="submit" name="action" value="Kirjaudu sisään" class="button">
+</form>
+<br>
+<h3>Rekisteröi uusi käyttäjä</h3>
+<form action="/register" method="GET" onsubmit="return check_search (this)">
+    <input type="submit" name="action" value="Rekisteröidy" class="button">
+</form>
