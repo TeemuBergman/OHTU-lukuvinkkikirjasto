@@ -8,6 +8,20 @@ tips = Tips()
 
 
 @app.route("/", methods=["GET", "POST"])
+def login():
+    if request.method == "GET":
+        return render_template("login.html")
+
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        return redirect("/home")
+
+    else:
+        return render_template("error.html", message="Käyttäjän kirjautuminen epäonnistui")
+
+
+@app.route("/home", methods=["GET", "POST"])
 def home():
     if request.method == "GET":
         existing_tips = tips.display_all()
@@ -19,22 +33,10 @@ def home():
         tip_url = request.form["tip_url"]
 
         if tips.add_tip(tip_name, tip_url):
-            return redirect("/")
+            return redirect("/home")
 
         else:
             return render_template("error.html", message="Vinkin tallennus epäonnistui.")
-
-
-@app.route("/login", methods=["GET"])
-def login():
-    username = request.form["username"]
-    password = request.form["password"]
-
-    # tähän kirjautumisen validointi, kun käyttäjä on valmis
-    return render_template("home.html")
-
-    else:
-        return render_template("error.html", message="Käyttäjän kirjautuminen epäonnistui")
 
 
 @app.route("/results", methods=["GET"])
