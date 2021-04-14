@@ -46,7 +46,7 @@ def register():
         return render_template("register.html")
     if request.method == "POST":
         # Tähän ehto jos rekisteröinti onnistuu ..
-        return redirect("/register")
+        return redirect("/home")
 
 
 @app.route("/results", methods=["GET"])
