@@ -10,7 +10,7 @@
 <h1>Rekisteröidy</h1>
 
 <h3>Rekisteröidy lukuvinkkisovelluksen käyttäjäksi</h3>
-<form action="/" method="post" onsubmit="return check (this)">
+<form action="/register" method="POST" onsubmit="return check (this)">
     <br>
     Käyttäjätunnus:
     <br>
@@ -22,8 +22,13 @@
     <br>
     <input type="submit" name="action" value="Rekisteröidy" class="button">
 </form>
-
-Onko sinulla jo käyttäjätunnus olemassa? Tästä pääset <a href="/login" class="button">kirjautumaan sisään</a>!
+<br>
+Onko sinulla jo käyttäjätunnus olemassa? Tästä pääset takaksin kirjautumiseen: 
+<br>
+<br>
+<form action="/" method="GET">
+<input type="submit" name="action" value="Takaisin kirjautumiseen" class="button">
+</form>
 <br>
 
 <script>

@@ -13,6 +13,7 @@ def login():
         return render_template("login.html")
 
     if request.method == "POST":
+        # lisätään ehtoja kirjautumisen tarkastamiseen, nyt ohjaa kurssinäkymään
         username = request.form["username"]
         password = request.form["password"]
         return redirect("/home")
@@ -38,13 +39,14 @@ def home():
         else:
             return render_template("error.html", message="Vinkin tallennus epäonnistui.")
 
-@app.route("/register", methods=["GET","POST"])
+
+@app.route("/register", methods=["GET", "POST"])
 def register():
-  if request.method=="GET":
-    return render_template("register.html")
-  if request.method=="POST":
-    #Tähän ehto jos rekisteröinti onnistuu ..
-    return redirect("/")
+    if request.method == "GET":
+        return render_template("register.html")
+    if request.method == "POST":
+        # Tähän ehto jos rekisteröinti onnistuu ..
+        return redirect("/register")
 
 
 @app.route("/results", methods=["GET"])
