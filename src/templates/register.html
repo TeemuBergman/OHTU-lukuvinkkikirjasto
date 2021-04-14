@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+<h1>Rekisteröidy</h1>
+
+<h3>Rekisteröidy lukuvinkkisovelluksen käyttäjäksi</h3>
+<form action="/" method="post" onsubmit="return check (this)">
+    <br>
+    Käyttäjätunnus:
+    <br>
+    <textarea name="username" rows="1" cols="30"></textarea>
+    <br>
+    Salasana:
+    <br>
+    <textarea name="password" rows="1" cols="30"></textarea>
+    <br>
+    <input type="submit" name="action" value="Rekisteröidy" class="button">
+</form>
+
+Onko sinulla jo käyttäjätunnus olemassa? Tästä pääset <a href="/login" class="button">kirjautumaan sisään</a>!
+<br>
+
+<script>
+  function check(form) {
+      if (form.username.value.length <3) {
+          alert("Käyttäjätunnuksen minimipituus on 3 merkkiä.")
+          return false
+      }
+      if (form.password.value.length<3){
+        alert("Salasanan minimipituus on 3 merkkiä. Korjaathan kentän tiedot.")
+          return false
+      }
+      return true
+  }
+
+
+</script>
+</body>
+</html>

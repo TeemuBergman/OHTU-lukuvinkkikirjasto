@@ -24,6 +24,14 @@ def home():
         else:
             return render_template("error.html", message="Vinkin tallennus epäonnistui.")
 
+@app.route("/register", methods=["GET","POST"])
+def register():
+  if request.method=="GET":
+    return render_template("register.html")
+  if request.method=="POST":
+    #Tähän ehto jos rekisteröinti onnistuu ..
+    return redirect("/")
+
 
 @app.route("/results", methods=["GET"])
 def result():
