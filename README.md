@@ -36,15 +36,17 @@ Kun projekti on kloonattu, asenna riippuvuudet ja alusta virtuaaliympäristö ko
 poetry install
 ```
 
+Alusta projektin tietokanta käskyllä
+
+```
+python setup.py
+```
+
 Tämän jälkeen siirry alihakemistoon **src**, ja käynnistä virtuaaliympäristö komennoilla:
 
 ```bash
 cd src
 ```
-```bash
-poetry shell
-```
-
 Src-hakemistossa aja seuraava komento Flask-palvelimen käynnistämiseksi:
 
 ```bash
