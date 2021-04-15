@@ -32,11 +32,6 @@ def result():
     return render_template("results.html", search_by_name = formatted_searches)
 
 
-@main.route('/profile')
-def profile():
-    return 'Profile'
-
-
 @main.route("/ping")
 def ping():
     return "Pong"

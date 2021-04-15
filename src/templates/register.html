@@ -10,19 +10,22 @@
 <h1>Rekisteröidy</h1>
 
 <h3>Rekisteröidy lukuvinkkisovelluksen käyttäjäksi</h3>
-<form action="/" method="post" onsubmit="return check (this)">
+<form method="POST" action="/register" onsubmit="return check (this)">
+    Sähköposti:
+    <br>
+    <input name="email" id="email" size="50"/>
     <br>
     Käyttäjätunnus:
     <br>
-    <textarea name="username" rows="1" cols="30"></textarea>
+    <input name="name" id="username" size="50"/>
     <br>
     Salasana:
     <br>
-    <textarea name="password" rows="1" cols="30"></textarea>
+    <input name="password" id="password" type="password" size="50"/>
     <br>
-    <input type="submit" name="action" value="Rekisteröidy" class="button">
+    <input type="submit" value="Rekisteröidy" class="button">
 </form>
-
+<br>
 Onko sinulla jo käyttäjätunnus olemassa? Tästä pääset <a href="/login" class="button">kirjautumaan sisään</a>!
 <br>
 
@@ -38,8 +41,7 @@ Onko sinulla jo käyttäjätunnus olemassa? Tästä pääset <a href="/login" cl
       }
       return true
   }
-
-
 </script>
+
 </body>
 </html>

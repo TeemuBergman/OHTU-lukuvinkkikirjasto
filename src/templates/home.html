@@ -9,26 +9,24 @@
 <body>
 <h1>Lukuvinkkejä</h1>
 
-<h3>Lisää lukuvinkki</h3>
 <form action="/" method="post" onsubmit="return check (this)">
-    <br>
+    <h3>Lisää lukuvinkki</h3>
     Kirjoittaja:
     <br>
-    <textarea name="tip_name" rows="1" cols="50"></textarea>
+    <input name="tip_name" size="60"/>
     <br>
     Url:
     <br>
-    <textarea name="tip_url" rows="1" cols="50"></textarea>
+    <input name="tip_url" size="60"/>
     <br>
     <input type="submit" name="action" value="Lisää" class="button">
 </form>
 <br>
-<h3>Hae lukuvinkki</h3>
 <form action="/results" method="GET" onsubmit="return check_search (this)">
-    <br>
+    <h3>Hae lukuvinkki</h3>
     Kirjoittajan nimi:
     <br>
-    <textarea name="tip_search" rows="1" cols="50"></textarea>
+    <input name="tip_search" size="60"/>
     <br>
     <input type="submit" name="action" value="Hae" class="button">
 </form>
@@ -68,6 +66,7 @@ Kirjoittaja: {{tip[0]}}, URL: {{tip[1]}}
     }
     return true
   }
+
 
 </script>
 </body>

@@ -7,19 +7,21 @@ db = SQLAlchemy()
 
 def create_app():
     app = Flask(__name__)
+
     app.config.from_mapping(
         FLASK_APP = "src",
         SECRET_KEY = "secret-key-goes-here",
-        SQLALCHEMY_DATABASE_URI = "sqlite:///tips.db",
-        SQLALCHEMY_TRACK_MODIFICATIONS = False
+        SQLALCHEMY_DATABASE_URI = "sqlite:///db.sqlite",
+        SQLALCHEMY_TRACK_MODIFICATIONS = False,
+        PROPAGATE_EXCEPTIONS = True
     )
 
-    try:
+    db.init_app(app)
+
+    """try:
         os.makedirs(app.instance_path)
     except OSError:
-        pass
-
-    db.init_app(app)
+        pass"""
 
     # blueprint for auth routes in our app
     from .auth import auth as auth_blueprint
