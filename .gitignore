@@ -11,3 +11,4 @@ report.html
 *.kate-swp
 .cache
 .pytest_cache
+src/db.sqlite

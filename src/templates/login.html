@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Kirjaudu</title>
 </head>
 <body>
-<h1>LOGIN</h1>
+<h1>Kirjaudu</h1>
+<h3>Kirjaudu lukuvinkkisovellukseen</h3>
+<form method="POST" action="/">
+    Sähköposti:
+    <br>
+    <input name="email" id="email" size="50"/>
+    <br>
+    Salasana:
+    <br>
+    <input name="password" id="password" type="password" size="50"/>
+    <br>
+    <input type="submit" value="Kirjaudu" class="button">
+    <label class="checkbox">
+        <input type="checkbox">
+        Muista minut
+    </label>
+</form>
+<br>
+Eikö sinulla vielä ole käyttäjätunnusta? Tästä pääset <a href="/register" class="button">rekisteröitymään</a>!
+<br>
 </body>
 </html>
