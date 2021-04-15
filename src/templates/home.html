@@ -16,6 +16,10 @@
     <br>
     <textarea name="tip_name" rows="1" cols="50"></textarea>
     <br>
+    Teoksen nimi:
+    <br>
+    <textarea name="tip_title" rows="1" cols="50"></textarea>
+    <br>
     Url:
     <br>
     <textarea name="tip_url" rows="1" cols="50"></textarea>
@@ -44,13 +48,13 @@ Tästä pääset takaisin kirjautumiseen:
 <h3>Listatut lukuvinkit:</h3>
 <hr>
 {% for tip in existing_tips %}
-Kirjoittaja: {{tip[0]}}, URL: {{tip[1]}}
+Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}
 <hr>
 {% endfor %}
 
 <script>
   function check(form) {
-      if (form.tip_name.value.length >100) {
+      if (form.tip_name.value.length >100){
           alert("Vinkin kirjoittajan maksimipituus on 100 merkkiä. Korjaathan kentän tiedot.")
           return false
       }
@@ -64,6 +68,14 @@ Kirjoittaja: {{tip[0]}}, URL: {{tip[1]}}
       }
       if (form.tip_url.value.length<3){
         alert("Vinkin URL:in minimipituus on 3 merkkiä. Korjaathan kentän tiedot.")
+          return false
+      }
+      if (form.tip_title.value.length >100){
+          alert("Teoksen nimen maksimipituus on 100 merkkiä. Korjaathan kentän tiedot.")
+          return false
+      }
+      if (form.tip_title.value.length<3){
+        alert("Teoksen minimipituus on 3 merkkiä. Korjaathan kentän tiedot.")
           return false
       }
       return true
