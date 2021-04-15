@@ -1,41 +1,33 @@
-import sqlite3
+from .models import TipBook
+from sqlalchemy.orm import Session
 
 
 class DBWrapper:
-    def __init__(self):
-        self.init_db()
-
-    def __do_query(self, sql: str, fields: dict = {}):
+    def __init__(self, sqlalchemy_object):
+        self.db = sqlalchemy_object
+        
+    def insert(self, fields: dict):
+        
+        new_tip = TipBook(user_id = fields["user_id"], 
+                          author = fields["author"], 
+                          url = fields["url"], 
+                          book_name = fields["book_name"])
+      
         try:
-            db = sqlite3.connect("tips.db")
-            db.isolation_level = None
-            query = sql
-            # tallennetaan haun tulokset display_tips:in käyttöä varten
-            results = db.execute(query, fields)
-            db.commit()
+            self.db.session.add(new_tip)
+            self.db.session.commit()
+            return True
         except Exception as e:
             print(f"exception: {e}")
             return False
-        return True, results  # lisätään palautukseen myös results
 
-    # Tehdää uusi taulukko jos sitä ennestään ole.
-    def init_db(self):
-        query = "CREATE TABLE IF NOT EXISTS lukuvinkit (id INTEGER PRIMARY KEY, name TEXT NOT NULL, url TEXT);"
-        self.__do_query(query)
-
-    def insert(self, fields: dict):
-        query = "INSERT INTO lukuvinkit (name, url) VALUES (:name, :url)"
-        return self.__do_query(query, {"name": fields["name"], "url": fields["url"]})[0]
-
+        
     # Hakee kaikki olemassa olevat lukuvinkit tietokannasta, jotta ne voidaan esittää etusivulla
     def display_all_tips(self):
-        query = "SELECT name, url FROM lukuvinkit"
-        return self.__do_query(query)
+        return self.db.session.query(TipBook.author, TipBook.url).all()
 
     # Hakee annetun kirjoittajan nimen perusteella tiedot
-    def search_by_writer_name(self, nimi):
-        query = "SELECT name, url FROM lukuvinkit WHERE name LIKE ?"
-        return self.__do_query(query, (nimi,))
+    def search_by_writer_name(self, author:str):
+        return self.db.session.query(TipBook.author, TipBook.url).filter_by(author=author).all()
 
 
-db_wrapper = DBWrapper()

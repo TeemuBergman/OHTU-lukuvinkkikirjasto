@@ -1,8 +1,10 @@
 from flask import Blueprint, redirect, render_template, request
 from flask_login import login_required
 from .tips import Tips
+from . import db
+from .db_wrapper import DBWrapper
 
-tips = Tips()
+tips = Tips(DBWrapper(db))
 main = Blueprint('main', __name__)
 
 
@@ -11,7 +13,7 @@ main = Blueprint('main', __name__)
 def add_tips():
     if request.method == "GET":
         existing_tips = tips.display_all()
-        existing_tips = existing_tips[1].fetchall()
+       
         return render_template("add_tips.html", existing_tips = existing_tips)
 
     if request.method == "POST":
