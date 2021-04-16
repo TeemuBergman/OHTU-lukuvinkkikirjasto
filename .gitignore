@@ -12,3 +12,4 @@ report.html
 .cache
 .pytest_cache
 src/db.sqlite
+*.pyc
