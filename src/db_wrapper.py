@@ -1,5 +1,4 @@
 from .models import TipBook
-from sqlalchemy.orm import Session
 
 
 class DBWrapper:
