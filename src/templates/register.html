@@ -4,31 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Rekisteröidy</title>
 </head>
 <body>
 <h1>Rekisteröidy</h1>
 
 <h3>Rekisteröidy lukuvinkkisovelluksen käyttäjäksi</h3>
-<form action="/register" method="POST" onsubmit="return check (this)">
+<form method="POST" action="/register" onsubmit="return check (this)">
+    Sähköposti:
     <br>
-    Käyttäjätunnus:
+    <input name="email" id="email" size="50"/>
     <br>
-    <textarea name="username" rows="1" cols="30"></textarea>
+    Nimi:
+    <br>
+    <input name="name" id="username" size="50"/>
     <br>
     Salasana:
     <br>
-    <textarea name="password" rows="1" cols="30"></textarea>
+    <input name="password" id="password" type="password" size="50"/>
     <br>
-    <input type="submit" name="action" value="Rekisteröidy" class="button">
+    <input type="submit" value="Rekisteröidy" class="button">
 </form>
 <br>
-Onko sinulla jo käyttäjätunnus olemassa? Tästä pääset takaksin kirjautumiseen: 
-<br>
-<br>
-<form action="/" method="GET">
-<input type="submit" name="action" value="Takaisin kirjautumiseen" class="button">
-</form>
+Onko sinulla jo käyttäjätunnus olemassa? Tästä pääset <a href="/login" class="button">kirjautumaan sisään</a>!
 <br>
 
 <script>
@@ -43,8 +41,7 @@ Onko sinulla jo käyttäjätunnus olemassa? Tästä pääset takaksin kirjautumi
       }
       return true
   }
-
-
 </script>
+
 </body>
 </html>

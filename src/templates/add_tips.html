@@ -7,32 +7,31 @@
     <title>Home</title>
 </head>
 <body>
+<a href="/logout" class="button">kirjaudu ulos</a>
 <h1>Lukuvinkkejä</h1>
-
 <h3>Lisää lukuvinkki</h3>
-<form action="/home" method="POST" onsubmit="return check (this)">
-    <br>
-    Kirjoittaja:
-    <br>
-    <textarea name="tip_name" rows="1" cols="50"></textarea>
-    <br>
-    Teoksen nimi:
-    <br>
-    <textarea name="tip_title" rows="1" cols="50"></textarea>
-    <br>
-    Url:
-    <br>
-    <textarea name="tip_url" rows="1" cols="50"></textarea>
-    <br>
-    <input type="submit" name="action" value="Lisää" class="button">
+<form action="/add_tips" method="POST" onsubmit="return check (this)">
+  <br>
+  Kirjoittaja:
+  <br>
+  <input name="tip_name" rows="1"  size="60">
+  <br>
+  Teoksen nimi:
+  <br>
+  <input name="tip_title" rows="1" size="60">
+  <br>
+  Url:
+  <br>
+  <input name="tip_url" rows="1" size="60">
+  <br>
+  <input type="submit" name="action" value="Lisää" class="button">
 </form>
 <br>
-<h3>Hae lukuvinkki</h3>
 <form action="/results" method="GET" onsubmit="return check_search (this)">
-    <br>
+    <h3>Hae lukuvinkki</h3>
     Kirjoittajan nimi:
     <br>
-    <textarea name="tip_search" rows="1" cols="50"></textarea>
+    <input name="tip_search" size="60"/>
     <br>
     <input type="submit" name="action" value="Hae" class="button">
 </form>
@@ -51,7 +50,6 @@ Tästä pääset takaisin kirjautumiseen:
 Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}
 <hr>
 {% endfor %}
-
 <script>
   function check(form) {
       if (form.tip_name.value.length >100){

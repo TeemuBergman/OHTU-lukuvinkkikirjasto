@@ -1,9 +1,9 @@
-from db_wrapper import db_wrapper as default_db_wrapper
+#from .db_wrapper import db_wrapper as default_db_wrapper
 import string
 
 
 class Tips:
-    def __init__(self, db_handler=default_db_wrapper):
+    def __init__(self, db_handler):
         self.db_handler = db_handler
         self.allowed_name_chars = string.ascii_letters + string.digits + "åäöÅÄÖ .,@%_"
         self.allowed_url_chars = string.ascii_letters + string.digits + "%/:.@?_=-"
@@ -11,19 +11,29 @@ class Tips:
         self.allowed_url_length = 200
         self.allowed_min_length = 3
 
-    def add_tip(self, name: str, url: str, title: str):
-        if self.validate(name, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length) and \
+    def add_tip(self, author: str, url: str, book_name:str):
+        if self.validate(author, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length) and \
                 self.validate(url, self.allowed_url_chars, self.allowed_url_length, self.allowed_min_length) and \
-                    self.validate(title, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length):
-            return self.db_handler.insert({"name": name, "url": url, "title": title})
+                self.validate(book_name, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length
+        ):
+            fake_user_id = 0
+            
+            tip_data = {"author": author, 
+                        "url": url, 
+                        "user_id": fake_user_id,
+                        "book_name": book_name
+                        }
+            return self.db_handler.insert(tip_data)
         else:
             print("not valid input")
             return False
 
+
+    # for input validation.
     # parameters:
     # field = the actual value
     # encoding = accepted chars
-    # length = maximum length of field
+    # max_length = maximum length of field
     # min_length = minimum lenght of field
     def validate(self, field, encoding: str, max_length: int, min_length: int):
         if len(field) > max_length or len(field) < min_length:
@@ -44,5 +54,6 @@ class Tips:
 
     def search_by_writer_name(self, name: str):
         if self.validate(name, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length):
-            if self.db_handler.search_by_writer_name(name)[0]:
-                return self.db_handler.search_by_writer_name(name)[1].fetchall()
+            result = self.db_handler.search_by_writer_name(name)
+            if len(result) > 0:
+                return result

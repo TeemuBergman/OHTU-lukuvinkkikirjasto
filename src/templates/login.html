@@ -2,47 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Kirjaudu</title>
 </head>
 <body>
-<h1>Kirjautuminen</h1>
-
-<h3>Kirjaudu sisään</h3>
-<form action="/" method="POST" onsubmit="return check (this)">
+<h1>Kirjaudu</h1>
+<h3>Kirjaudu lukuvinkkisovellukseen</h3>
+<form method="POST" action="/">
+    Sähköposti:
     <br>
-    Käyttäjänimi:
-    <br>
-    <textarea name="username" rows="1" cols="50"></textarea>
+    <input name="email" id="email" size="50"/>
     <br>
     Salasana:
     <br>
-    <textarea name="password" rows="1" cols="50"></textarea>
+    <input name="password" id="password" type="password" size="50"/>
     <br>
-    <input type="submit" name="action" value="Kirjaudu sisään" class="button">
+    <input type="submit" value="Kirjaudu" class="button">
+    <label class="checkbox">
+        <input type="checkbox">
+        Muista minut
+    </label>
 </form>
 <br>
-<h3>Rekisteröi uusi käyttäjä</h3>
-<form action="/register" method="GET">
-    <input type="submit" name="action" value="Rekisteröidy" class="button">
-</form>
+Eikö sinulla vielä ole käyttäjätunnusta? Tästä pääset <a href="/register" class="button">rekisteröitymään</a>!
 <br>
-
-<script>
-    function check(form) {
-        if (form.username.value.length <3) {
-            alert("Käyttäjätunnuksen minimipituus on 3 merkkiä.")
-            return false
-        }
-        if (form.password.value.length<3){
-          alert("Salasanan minimipituus on 3 merkkiä. Korjaathan kentän tiedot.")
-            return false
-        }
-        return true
-    }
-  
-  
-  </script>
-  </body>
-  </html>
+</body>
+</html>

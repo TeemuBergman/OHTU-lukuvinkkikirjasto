@@ -13,12 +13,12 @@
     {% for tip in search_by_name %}
     <hr>
     <div id="result">
-        Kirjoittaja: {{tip[0]}}, Teoksen nimi: {{tip[1]}}, URL: {{tip[2]}}
+        Kirjoittaja: {{tip[1]}}, Teoksen nimi: {{tip[0]}}, URL: {{tip[2]}}
     </div>
     <hr>
     {% endfor %}
 </div>
-<form action="/home">
+<form action="/add_tips">
     <input type="submit" value="Edellinen näkymä"/>
 </form>
 </body>
