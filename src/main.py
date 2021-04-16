@@ -19,8 +19,9 @@ def add_tips():
     if request.method == "POST":
         tip_name = request.form["tip_name"]
         tip_url = request.form["tip_url"]
+        tip_title = request.form["tip_title"]
 
-        if tips.add_tip(tip_name, tip_url):
+        if tips.add_tip(tip_name, tip_url, tip_title):
             return redirect("/add_tips")
         else:
             return render_template("error.html", message = "Vinkin tallennus epäonnistui.")

@@ -24,10 +24,10 @@ class DBWrapper:
         
     # Hakee kaikki olemassa olevat lukuvinkit tietokannasta, jotta ne voidaan esittää etusivulla
     def display_all_tips(self):
-        return self.db.session.query(TipBook.author, TipBook.url).all()
+        return self.db.session.query(TipBook.book_name, TipBook.author, TipBook.url).all()
 
     # Hakee annetun kirjoittajan nimen perusteella tiedot
     def search_by_writer_name(self, author:str):
-        return self.db.session.query(TipBook.author, TipBook.url).filter_by(author=author).all()
+        return self.db.session.query(TipBook.book_name, TipBook.author, TipBook.url).filter_by(author=author).all()
 
 

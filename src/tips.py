@@ -11,16 +11,17 @@ class Tips:
         self.allowed_url_length = 200
         self.allowed_min_length = 3
 
-    def add_tip(self, author: str, url: str):
+    def add_tip(self, author: str, url: str, book_name:str):
         if self.validate(author, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length) and \
-                self.validate(url, self.allowed_url_chars, self.allowed_url_length, self.allowed_min_length
+                self.validate(url, self.allowed_url_chars, self.allowed_url_length, self.allowed_min_length) and \
+                self.validate(book_name, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length
         ):
             fake_user_id = 0
-            fake_book_name ="name of book here"
+            
             tip_data = {"author": author, 
                         "url": url, 
                         "user_id": fake_user_id,
-                        "book_name": fake_book_name
+                        "book_name": book_name
                         }
             return self.db_handler.insert(tip_data)
         else:
