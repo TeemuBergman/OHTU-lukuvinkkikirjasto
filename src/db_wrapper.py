@@ -5,7 +5,6 @@ from sqlalchemy.orm import Session
 class DBWrapper:
     def __init__(self, sqlalchemy_object):
         self.db = sqlalchemy_object
-        print("alkemy session", self.db.session)
         
         
     def insert(self, fields: dict):
