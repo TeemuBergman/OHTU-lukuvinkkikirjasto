@@ -6,7 +6,7 @@ Library  SeleniumLibrary
 ${SERVER}  localhost:5000
 ${BROWSER}  headlesschrome
 ${DELAY}  0.2 seconds
-${HOME URL}  http://${SERVER}
+${HOME URL}  http://${SERVER}/home
 # ${RESULTS URL}  http://${SERVER}/results?tip_name=${search}&action=Hae
 
 *** Keywords ***

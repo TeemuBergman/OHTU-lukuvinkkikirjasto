@@ -6,11 +6,13 @@ Test Setup  Go To Main Page
 
 *** Variables ***
 ${tip_author}  Author
+${tip_title}  Teoksen nimi
 ${tip_url}  www.test.com
 
 *** Test Cases ***
 Input New Tip
     Set Tip Author
+    Set Tip Title
     Set Tip URL
     Submit Tip
 
@@ -18,11 +20,14 @@ Confirm New Tip
     Search Author
     Submit Search
     ${response}    Get Text    result
-    Should Be Equal As Strings  ${response}  Kirjoittaja: ${tip_author}_${number}, URL: ${tip_url}/${word}
+    Should Be Equal As Strings  ${response}  Kirjoittaja: ${tip_author}_${number}, Teoksen nimi: ${tip_title}_${number}, URL: ${tip_url}/${word}
 
 *** Keywords ***
 Set Tip Author
     Input Text  tip_name  ${tip_author}_${number}
+
+Set Tip Title
+    Input Text  tip_title  ${tip_title}_${number}
 
 Set Tip URL
     Input Text  tip_url  ${tip_url}/${word}
