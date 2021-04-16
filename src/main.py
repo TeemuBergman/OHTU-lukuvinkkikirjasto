@@ -4,6 +4,7 @@ from .tips import Tips
 from . import db
 from .db_wrapper import DBWrapper
 
+
 tips = Tips(DBWrapper(db))
 main = Blueprint('main', __name__)
 

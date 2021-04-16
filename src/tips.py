@@ -3,24 +3,25 @@ import string
 
 
 class Tips:
-    def __init__(self, db_handler):
+    def __init__(self, db_handler, user_id=0):
         self.db_handler = db_handler
         self.allowed_name_chars = string.ascii_letters + string.digits + "åäöÅÄÖ .,@%_"
         self.allowed_url_chars = string.ascii_letters + string.digits + "%/:.@?_=-"
         self.allowed_name_length = 100
         self.allowed_url_length = 200
         self.allowed_min_length = 3
+        self.user_id = user_id
 
     def add_tip(self, author: str, url: str, book_name:str):
         if self.validate(author, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length) and \
                 self.validate(url, self.allowed_url_chars, self.allowed_url_length, self.allowed_min_length) and \
                 self.validate(book_name, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length
         ):
-            fake_user_id = 0
+            
             
             tip_data = {"author": author, 
                         "url": url, 
-                        "user_id": fake_user_id,
+                        "user_id": self.user_id,
                         "book_name": book_name
                         }
             return self.db_handler.insert(tip_data)
@@ -50,10 +51,10 @@ class Tips:
         return True
 
     def display_all(self):
-        return self.db_handler.display_all_tips()
+        return self.db_handler.display_all_tips(self.user_id)
 
     def search_by_writer_name(self, name: str):
         if self.validate(name, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length):
-            result = self.db_handler.search_by_writer_name(name)
+            result = self.db_handler.search_by_writer_name(name, self.user_id)
             if len(result) > 0:
                 return result
