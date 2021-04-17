@@ -2,9 +2,9 @@
 
 ![GitHub Actions](https://github.com/HJJHeinonen/OHTU-lukuvinkkikirjasto/workflows/CI/badge.svg) [![codecov](https://codecov.io/gh/HJJHeinonen/OHTU-lukuvinkkikirjasto/branch/master/graph/badge.svg?token=S3WQ2AE38H)](https://codecov.io/gh/HJJHeinonen/OHTU-lukuvinkkikirjasto)
 
-Tämä repositorio on Helsingin yliopiston Ohjelmistotuotanto-kurssin miniprojektia varten. 
+Tämä repositorio on Helsingin yliopiston Ohjelmistotuotanto-kurssin miniprojektia varten.
 
-### Lukuvinkkisovellus 
+### Lukuvinkkisovellus
 
 Sovelluksen tarkoitus on pystyä tallettamaan erinäisiä lukuvinkkejä, sekä selaamaan niitä.
 
@@ -86,6 +86,3 @@ robot src/tests/robotframework
 ```
 
 **Mikäli testien ajaminen ei onnistu, tarkistathan, että suhteellinen polku hakemistoon on oikea**.
-
-
-
