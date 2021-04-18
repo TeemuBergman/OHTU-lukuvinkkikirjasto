@@ -6,7 +6,7 @@ Library  SeleniumLibrary
 ${SERVER}  localhost:5000
 ${BROWSER}  headlesschrome
 ${DELAY}  0.2 seconds
-${HOME URL}  http://${SERVER}/home
+${HOME URL}  http://${SERVER}/
 # ${RESULTS URL}  http://${SERVER}/results?tip_name=${search}&action=Hae
 
 *** Keywords ***
@@ -20,7 +20,7 @@ Open And Configure Browser
     Set Selenium Speed  ${DELAY}
 
 Main Page Should Be Open
-    Title Should Be  Home
+    Title Should Be  Kirjaudu
 
 Go To Main Page
     Go To  ${HOME URL}
