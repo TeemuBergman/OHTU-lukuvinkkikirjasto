@@ -27,6 +27,9 @@ jobs:
         run: pip install poetry
       - name: Install dependencies
         run: poetry install
+      - name: Go to venv and setup db
+        run: poetry shell
+        run: python setup.py
       - name: Run robot tests
         run: bash run_robot_tests.sh
       - name: Run coverage
