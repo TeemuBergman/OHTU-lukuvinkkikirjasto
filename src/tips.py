@@ -29,6 +29,9 @@ class Tips:
             print("not valid input")
             return False
 
+    def delete_tip(self, tip_id: int):
+        tip_data = {"id" : tip_id}
+        return self.db_handler.delete_tip(tip_data)
 
     # for input validation.
     # parameters:

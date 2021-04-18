@@ -41,6 +41,14 @@ def result():
         return render_template("error.html", message = "Hakutulosten hakeminen epäonnistui.")
     return render_template("results.html", search_by_name = formatted_searches)
 
+@main.route("/delete", methods=["POST"])
+@login_required
+def delete_tip():
+    tips = Tips(DBWrapper(db),session["_user_id"])
+    tip_id = request.form["tip_id"]
+    tips.delete_tip(tip_id)
+    return render_template("delete.html")
+
 
 # Tarpeellinen Githubin Robot testaukseen
 @main.route("/ping")

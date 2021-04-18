@@ -38,8 +38,12 @@
 
 <h3>Listatut lukuvinkit:</h3>
 <hr>
-{% for tip in existing_tips %}
-Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}
+    {% for tip in existing_tips %}
+<form action="/delete" method="POST" onsubmit="return delete_tip (this)">
+    Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}
+    <input type="hidden" value="{{tip[3]}}" name="tip_id">
+    <input type="submit" name="action" value="Poista" class="button">
+</form>
 <hr>
 {% endfor %}
 <script>
@@ -78,7 +82,9 @@ Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}
     }
     return true
   }
-
+  function delete_tip(form){
+    return true
+  }
 </script>
 </body>
 </html>
