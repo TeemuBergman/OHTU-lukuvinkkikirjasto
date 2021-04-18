@@ -31,9 +31,7 @@ jobs:
         run: poetry run python setup.py
       - name: Run robot tests
         run: bash run_robot_tests.sh
-      - name: Run coverage
+      - name: Run coverage and get report
         run: bash run_coverage_report.sh
-      - name: Coverage report
-        run: poetry run coverage xml
       - name: Coverage report to Codecov
         run: bash <(curl -s https://codecov.io/bash)
