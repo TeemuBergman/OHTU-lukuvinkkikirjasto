@@ -2,7 +2,7 @@
 
 # käynnistetään Flask-palvelin taustalle (huomaa & komennon lopussa)
 cd src
-flask run &
+poetry run flask run &
 
 # odetetaan, että palvelin on valmiina ottamaan vastaan pyyntöjä,
 # jolloin localhost:5000/ping antaa vastauksen statuskoodilla 200
@@ -11,7 +11,7 @@ while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' localhost:5000/ping)" != "2
 done
 
 # suoritetaan testit
-poetry run robot tests/robotframework
+poetry run robot src/tests/robotframework
 
 # pysäytetään Flask-palvelin portissa 5000
 function clean_up {
