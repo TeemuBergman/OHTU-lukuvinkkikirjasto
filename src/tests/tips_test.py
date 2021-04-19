@@ -1,5 +1,5 @@
 import unittest
-from tips import Tips
+from src.tips import Tips
 
 
 class DBWrapperStub:
@@ -48,3 +48,4 @@ class TestTips(unittest.TestCase):
     def test_illegal_name_search_by_writer_name(self):
         tip = self.tips.search_by_writer_name("Arto Paasilinna&")
         self.assertEqual(tip, None)
+

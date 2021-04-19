@@ -39,7 +39,7 @@ poetry install
 Alusta projektin tietokanta käskyllä
 
 ```
-python setup.py
+poetry run python setup.py
 ```
 
 Tämän jälkeen siirry alihakemistoon **src**, ja käynnistä virtuaaliympäristö komennoilla:
@@ -50,7 +50,7 @@ cd src
 Src-hakemistossa aja seuraava komento Flask-palvelimen käynnistämiseksi:
 
 ```bash
-flask run
+poetry run flask run
 ```
 
 Sovellus on nyt käytettävissä selaimen osoitteessa [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
