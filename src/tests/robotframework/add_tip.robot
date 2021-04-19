@@ -60,6 +60,14 @@ Logout
     Go To Logout
     Title Should Be  Kirjaudu
 
+Delete Tip
+    Set User Email
+    Set User Password
+    Submit Login
+    Title Should Be  Lukuvinkkejä
+    Delete Tip
+    Title Should Be  Delete
+
 *** Keywords ***
 Set Tip Author
     Input Text  tip_name  ${tip_author}_${number}
@@ -102,4 +110,7 @@ Submit Login
 
 Go To Logout
     Click Link  link:kirjaudu ulos
+
+Delete Tip
+    Click Button  Poista
 

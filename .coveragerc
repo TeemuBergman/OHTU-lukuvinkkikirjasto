@@ -1,7 +1,7 @@
 [run]
-omit = 
-    *index.py
-    *app.py
-    *_library.py
-    *tests*
 source = src
+omit = 
+    __init__.py
+    *index.py
+    src/tests/*
+    *_library.py
