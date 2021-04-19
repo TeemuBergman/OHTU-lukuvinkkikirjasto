@@ -4,5 +4,8 @@ omit =
     src/__init__.py
     src/wsgi.py
     *index.py
-    src/tests/*
-    *_library.py
+    src/tests/**
+    src/auth.py
+    src/db_wrapper.py
+    src/main.py
+    src/models.py
