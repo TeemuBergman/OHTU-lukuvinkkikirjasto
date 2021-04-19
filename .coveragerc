@@ -1,7 +1,8 @@
 [run]
 source = src
 omit = 
-    __init__.py
+    src/__init__.py
+    src/wsgi.py
     *index.py
     src/tests/*
     *_library.py
