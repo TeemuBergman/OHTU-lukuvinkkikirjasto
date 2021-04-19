@@ -61,28 +61,18 @@ Sovelluksessa on käytetty yksikkötestejä, sekä hyväksymistestejä Robot Fra
 
 #### Yksikkötestit
 
-Yksikkötestien ajamista varten tulee olla projektihakemistossa virtuaaliympäristössä. Virtuaaliympäristöön pääset komennolla:
+Yksikkötestit voi ajaa projektihakemiston juuresta komennolla:
 
 ```bash
-poetry shell
-```
-Tämän jälkeen testit voi ajaa komennolla:
-
-```bash
-pytest
+poetry run pytest src
 ```
 
 #### Hyväksymistestit
 
-Hyväksymistestien ajamista varten Flask-palvelimen on oltava käynnissä. Mennään ensin virtuaaliympäristöön komennolla:
+Hyväksymistestien ajamista varten Flask-palvelimen on oltava käynnissä. Testit voi ajaa projektin juuresta komennolla:
 
 ```bash
-poetry shell
-```
-Tämän jälkeen testit voi ajaa komennolla:
-
-```bash
-robot src/tests/robotframework
+poetry run robot src/tests/robotframework
 ```
 
 **Mikäli testien ajaminen ei onnistu, tarkistathan, että suhteellinen polku hakemistoon on oikea**.
