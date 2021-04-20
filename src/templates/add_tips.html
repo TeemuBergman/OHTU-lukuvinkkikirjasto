@@ -40,9 +40,10 @@
 <hr>
     {% for tip in existing_tips %}
 <form action="/delete" method="POST" onsubmit="return delete_tip (this)">
-    Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}
+    Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}, Luettu: {{tip[4]}}, Aikaleima: {{tip[5]}} 
     <input type="hidden" value="{{tip[3]}}" name="tip_id">
     <input type="submit" name="action" value="Poista" class="button">
+    <input type="submit" name="action" value="Luettu / Ei luettu" class="button">
 </form>
 <hr>
 {% endfor %}

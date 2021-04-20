@@ -12,18 +12,18 @@ def login():
     return render_template("login.html")
 
 
-@auth.route("/", methods = ["GET", "POST"])
+@auth.route("/", methods=["GET", "POST"])
 def login_post():
     email = request.form.get('email')
     password = request.form.get('password')
     remember = True if request.form.get('remember') else False
 
-    user = User.query.filter_by(email = email).first()
+    user = User.query.filter_by(email=email).first()
 
     if not user or not check_password_hash(user.password, password):
         return redirect(url_for('auth.login'))
 
-    login_user(user, remember = remember)
+    login_user(user, remember=remember)
 
     return redirect(url_for('main.add_tips'))
 
@@ -33,18 +33,19 @@ def register():
     return render_template("register.html")
 
 
-@auth.route("/register", methods = ["POST"])
+@auth.route("/register", methods=["POST"])
 def register_post():
     email = request.form.get("email")
     name = request.form.get("name")
     password = request.form.get("password")
 
-    user = User.query.filter_by(email = email).first()
+    user = User.query.filter_by(email=email).first()
 
     if user:
         return redirect(url_for("auth.register"))
 
-    new_user = User(email = email, name = name, password = generate_password_hash(password, method = "sha256"))
+    new_user = User(email=email, name=name,
+                    password=generate_password_hash(password, method="sha256"))
 
     db.session.add(new_user)
     db.session.commit()

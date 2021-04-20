@@ -12,26 +12,30 @@ class Tips:
         self.allowed_min_length = 3
         self.user_id = user_id
 
-    def add_tip(self, author: str, url: str, book_name:str):
+    def add_tip(self, author: str, url: str, book_name: str):
         if self.validate(author, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length) and \
                 self.validate(url, self.allowed_url_chars, self.allowed_url_length, self.allowed_min_length) and \
                 self.validate(book_name, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length
-        ):
-            
-            
-            tip_data = {"author": author, 
-                        "url": url, 
+                              ):
+
+            tip_data = {"author": author,
+                        "url": url,
                         "user_id": self.user_id,
-                        "book_name": book_name
-                        }
+                        "book_name": book_name,
+                        "read_check": False,
+                        "time_stamp": None}
             return self.db_handler.insert(tip_data)
         else:
             print("not valid input")
             return False
 
     def delete_tip(self, tip_id: int):
-        tip_data = {"id" : tip_id}
+        tip_data = {"id": tip_id}
         return self.db_handler.delete_tip(tip_data)
+
+    def read_check_tip(self, tip_id: int):
+        tip_data = {"id": tip_id}
+        return self.db_handler.read_check_tip(tip_data)
 
     # for input validation.
     # parameters:

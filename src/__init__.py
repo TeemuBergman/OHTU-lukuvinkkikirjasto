@@ -9,11 +9,11 @@ def create_app():
     app = Flask(__name__)
 
     app.config.from_mapping(
-        FLASK_APP = "src",
-        SECRET_KEY = "secret-key-goes-here",
-        SQLALCHEMY_DATABASE_URI = "sqlite:///db.sqlite",
-        SQLALCHEMY_TRACK_MODIFICATIONS = False,
-        PROPAGATE_EXCEPTIONS = True
+        FLASK_APP="src",
+        SECRET_KEY="secret-key-goes-here",
+        SQLALCHEMY_DATABASE_URI="sqlite:///db.sqlite",
+        SQLALCHEMY_TRACK_MODIFICATIONS=False,
+        PROPAGATE_EXCEPTIONS=True
     )
 
     db.init_app(app)
