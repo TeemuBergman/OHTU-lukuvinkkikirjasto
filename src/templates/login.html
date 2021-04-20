@@ -25,5 +25,12 @@
 <br>
 Eikö sinulla vielä ole käyttäjätunnusta? Tästä pääset <a href="/register" name="register">rekisteröitymään</a>!
 <br>
+<h3>Lukuvinkit:</h3>
+<hr>
+    {% for tip in existing_tips %}
+    Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}
+<hr>
+{% endfor %}
+<script>
 </body>
 </html>
