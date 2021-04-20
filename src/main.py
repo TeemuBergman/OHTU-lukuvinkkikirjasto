@@ -67,24 +67,6 @@ def check_tip():
     return redirect("/add_tips")
 
 
-# @main.route("/add_tips", methods=["POST"])
-# @login_required
-# def modfify():
-#     # tipsin poistaminen
-#     if request.form["action"] == "Poista":
-#         tips = Tips(DBWrapper(db), session["_user_id"])
-#         tip_id = request.form["tip_id"]
-#         tips.delete_tip(tip_id)
-#         return render_template("delete.html")
-
-#     # tipsin luetuksi muokkaaminen
-#     if request.form["action"] == "Luettu":
-#         tips = Tips(DBWrapper(db), session["_user_id"])
-#         tip_id = request.form["tip_id"]
-#         tips.read_check_tip(tip_id)
-#         return redirect("/add_tips")
-
-
 # Tarpeellinen Githubin Robot testaukseen
 @main.route("/ping")
 def ping():
