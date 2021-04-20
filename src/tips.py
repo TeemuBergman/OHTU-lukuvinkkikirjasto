@@ -57,6 +57,9 @@ class Tips:
 
         return True
 
+    def display_all_all_users(self):
+        return self.db_handler.display_all_tips_all_users()
+
     def display_all(self):
         return self.db_handler.display_all_tips(self.user_id)
 

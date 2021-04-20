@@ -3,13 +3,24 @@ from flask_login import login_required, login_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import User
 from . import db
+from .tips import Tips
+from .db_wrapper import DBWrapper
+
 
 auth = Blueprint("auth", __name__)
 
 
 @auth.route("/")
 def login():
-    return render_template("login.html")
+
+    # tipsin alustus laitettu tänne jotta saadaan käyttäjän user_id mukaan.
+    tips = Tips(DBWrapper(db))
+    existing_tips = tips.display_all_all_users()
+
+    #if request.method == "GET":
+    # return render_template("add_tips.html", existing_tips=existing_tips)
+
+    return render_template("login.html",  existing_tips=existing_tips)
 
 
 @auth.route("/", methods=["GET", "POST"])

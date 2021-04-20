@@ -24,7 +24,10 @@ class DBWrapper:
             return False
 
     # Hakee kaikki olemassa olevat lukuvinkit tietokannasta, jotta ne voidaan esittää etusivulla
+    def display_all_tips_all_users(self):
+        return self.db.session.query(TipBook.book_name, TipBook.author, TipBook.url, TipBook.id, TipBook.read_check, TipBook.time_stamp).all()
 
+    # hakee kaikki lukuvinkit sisäänkirjautuneelle käyttäjälle
     def display_all_tips(self, user_id: int):
         return self.db.session.query(TipBook.book_name, TipBook.author, TipBook.url, TipBook.id, TipBook.read_check, TipBook.time_stamp).filter_by(user_id=user_id).all()
 

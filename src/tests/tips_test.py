@@ -20,6 +20,9 @@ class DBWrapperStub:
     def delete_tip(self,fields):
       return True
 
+    def display_all_tips_all_users(self):
+        return [('Arto Paasilinna', 'www.testi.fi', 'Testi')]
+
 
   
 
@@ -63,3 +66,6 @@ class TestTips(unittest.TestCase):
 
     def test_display_all_tips(self):
       self.assertEqual(self.tips.display_all(), [('Arto Paasilinna', 'www.testi.fi', 'Testi')])
+
+    def test_display_all_all_users(self):
+        self.assertEqual(self.tips.display_all_all_users(), [('Arto Paasilinna', 'www.testi.fi', 'Testi')])
