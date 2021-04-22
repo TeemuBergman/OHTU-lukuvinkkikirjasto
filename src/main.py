@@ -14,9 +14,10 @@ def add_tips():
     tips = Tips(DBWrapper(db), session["_user_id"])
 
     if request.method == "GET":
-        existing_tips = tips.display_all()
+        unread_tips = tips.display_unread_tips()
+        read_tips = tips.display_read_tips()
 
-        return render_template("add_tips.html", existing_tips=existing_tips)
+        return render_template("add_tips.html", unread_tips=unread_tips, read_tips=read_tips)
 
     if request.method == "POST":
         tip_name = request.form["tip_name"]
