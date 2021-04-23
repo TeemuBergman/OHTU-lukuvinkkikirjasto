@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request
+from flask import Blueprint, render_template, redirect, url_for, request, session
 from flask_login import login_required, login_user, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from .models import User
@@ -16,11 +16,12 @@ def login():
     # tipsin alustus laitettu tänne jotta saadaan käyttäjän user_id mukaan.
     tips = Tips(DBWrapper(db))
     existing_tips = tips.display_all_all_users()
+    user_id = session.get("_user_id",0)
 
     #if request.method == "GET":
     # return render_template("add_tips.html", existing_tips=existing_tips)
 
-    return render_template("login.html",  existing_tips=existing_tips)
+    return render_template("login.html",  existing_tips=existing_tips, user_id=user_id)
 
 
 @auth.route("/", methods=["GET", "POST"])

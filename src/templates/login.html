@@ -5,6 +5,8 @@
     <title>Kirjaudu</title>
 </head>
 <body>
+  <h1>Etusivu</h1>
+  {% if not user_id %}
 <h1>Kirjaudu</h1>
 <h3>Kirjaudu lukuvinkkisovellukseen</h3>
 <form method="POST" action="/">
@@ -22,15 +24,20 @@
         Muista minut
     </label>
 </form>
+
+
 <br>
 Eikö sinulla vielä ole käyttäjätunnusta? Tästä pääset <a href="/register" name="register">rekisteröitymään</a>!
 <br>
+{% else %}
+Tästä pääset <a href="/add_tips" name="users_page">omille sivuille</a>!
+{% endif %}
 <h3>Lukuvinkit:</h3>
 <hr>
     {% for tip in existing_tips %}
     Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}
 <hr>
 {% endfor %}
-<script>
+
 </body>
 </html>
