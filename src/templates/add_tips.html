@@ -36,11 +36,21 @@
     <input type="submit" name="action" value="Hae" class="button">
 </form>
 
-<h3>Listatut lukuvinkit:</h3>
+<h3>Lukemattomat lukuvinkit:</h3>
 <hr>
-    {% for tip in existing_tips %}
+    {% for tip in unread_tips %}
 <form action="/delete" method="POST" onsubmit="return delete_tip (this)">
-    Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}, Luettu: {{tip[4]}}, Aikaleima: {{tip[5]}} 
+    Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}
+    <input type="hidden" value="{{tip[3]}}" name="tip_id">
+    <input type="submit" name="action" value="Poista" class="button">
+    <input type="submit" name="action" value="Luettu / Ei luettu" class="button">
+</form>
+<hr>
+{% endfor %}
+<h3>Luetut lukuvinkit:</h3>
+    {% for tip in read_tips %}
+<form action="/delete" method="POST" onsubmit="return delete_tip (this)">
+    Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}, Luettu: {{tip[5]}} 
     <input type="hidden" value="{{tip[3]}}" name="tip_id">
     <input type="submit" name="action" value="Poista" class="button">
     <input type="submit" name="action" value="Luettu / Ei luettu" class="button">

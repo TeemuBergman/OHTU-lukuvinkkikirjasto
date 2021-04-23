@@ -60,8 +60,11 @@ class Tips:
     def display_all_all_users(self):
         return self.db_handler.display_all_tips_all_users()
 
-    def display_all(self):
-        return self.db_handler.display_all_tips(self.user_id)
+    def display_unread_tips(self):
+        return self.db_handler.display_unread_tips(self.user_id)
+
+    def display_read_tips(self):
+        return self.db_handler.display_read_tips(self.user_id)
 
     def search_by_writer_name(self, name: str):
         if self.validate(name, self.allowed_name_chars, self.allowed_name_length, self.allowed_min_length):

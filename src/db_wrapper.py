@@ -27,9 +27,13 @@ class DBWrapper:
     def display_all_tips_all_users(self):
         return self.db.session.query(TipBook.book_name, TipBook.author, TipBook.url, TipBook.id, TipBook.read_check, TipBook.time_stamp).all()
 
-    # hakee kaikki lukuvinkit sisäänkirjautuneelle käyttäjälle
-    def display_all_tips(self, user_id: int):
-        return self.db.session.query(TipBook.book_name, TipBook.author, TipBook.url, TipBook.id, TipBook.read_check, TipBook.time_stamp).filter_by(user_id=user_id).all()
+    # hakee kaikki lukemattomatvinkit sisäänkirjautuneelle käyttäjälle
+    def display_unread_tips(self, user_id: int):
+        return self.db.session.query(TipBook.book_name, TipBook.author, TipBook.url, TipBook.id, TipBook.read_check, TipBook.time_stamp).filter_by(user_id=user_id, read_check="Ei").all()
+
+    # hakee kaikki lukemattomatvinkit sisäänkirjautuneelle käyttäjälle
+    def display_read_tips(self, user_id: int):
+        return self.db.session.query(TipBook.book_name, TipBook.author, TipBook.url, TipBook.id, TipBook.read_check, TipBook.time_stamp).filter_by(user_id=user_id, read_check="Kyllä").all()
 
     # Hakee annetun kirjoittajan nimen perusteella tiedot
     def search_by_writer_name(self, author: str, user_id: int):
