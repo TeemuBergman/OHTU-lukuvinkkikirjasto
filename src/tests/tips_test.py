@@ -20,6 +20,8 @@ class DBWrapperStub:
     def delete_tip(self,fields):
       return True
 
+    def display_all_tips_all_users(self):
+        return [('Arto Paasilinna', 'www.testi.fi', 'Testi')]
 
 
   
