@@ -2,23 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Kirjaudu</title>
+    <title>Lukuvinkit</title>
     <style>
         .thead_td {
             background-color: #cccccc;
             font-weight: bold;
             padding: 3px;
         }
-        td { background-color: #eeeeee;
+
+        td {
+            background-color: #eeeeee;
             padding: 3px;
-         }
+        }
     </style>
 </head>
 <body>
-  <h1>Etusivu</h1>
-  {% if not user_id %}
-<h1>Kirjaudu</h1>
-<h3>Kirjaudu lukuvinkkisovellukseen</h3>
+{% if user_id %}
+<p>// <a href="/add_tips" name="users_page" class="button">Oma sivu</a> // <a href="/logout" class="button">Kirjaudu ulos</a></p>
+{% endif %}
+<h1>Lukuvinkit</h1>
+{% if not user_id %}
+<h3 id="kirjaudu_otsikko">Kirjaudu lukuvinkkisovellukseen</h3>
 <form method="POST" action="/">
     Sähköposti:
     <br>
@@ -34,26 +38,24 @@
         Muista minut
     </label>
 </form>
-
-
 <br>
 Eikö sinulla vielä ole käyttäjätunnusta? Tästä pääset <a href="/register" name="register">rekisteröitymään</a>!
-<br>
-{% else %}
-Tästä pääset <a href="/add_tips" name="users_page">omille sivuille</a>!
 {% endif %}
-<h3>Lukuvinkit:</h3>
+<h3>Kaikki lukuvinkit:</h3>
 <table width=900>
-    <thead><tr>
+    <thead>
+    <tr>
         <td width=300 class=thead_td>Teoksen nimi</td>
-        <td width=200  class=thead_td>Kirjoittaja</td>
-        <td width=400  class=thead_td>URL</td></tr></thead>
+        <td width=200 class=thead_td>Kirjoittaja</td>
+        <td width=400 class=thead_td>URL</td>
+    </tr>
+    </thead>
     {% for tip in existing_tips %}
-        <tr>
-            <td> {{tip[0]}} </td>
-            <td> {{tip[1]}} </td>
-            <td> {{tip[2]}} </td>
-        </tr>
+    <tr>
+        <td> {{tip[0]}}</td>
+        <td> {{tip[1]}}</td>
+        <td> {{tip[2]}}</td>
+    </tr>
     {% endfor %}
 </table>
 </body>

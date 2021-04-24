@@ -4,28 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lukuvinkkejä</title>
+    <title>Omat lukuvinkit</title>
 </head>
 <body>
-<a href="/logout" class="button">kirjaudu ulos</a>
-<a href="/" class="button">Etusivulle</a>
-<h1>Lukuvinkkejä</h1>
+<p>// <a href="/" class="button">Etusivu</a> // <a href="/logout" class="button">Kirjaudu ulos</a></p>
+<h1>Omat lukuvinkit</h1>
 <h3>Lisää lukuvinkki</h3>
 <form action="/add_tips" method="POST" onsubmit="return check (this)">
-  <br>
-  Kirjoittaja:
-  <br>
-  <input name="tip_name" rows="1"  size="60">
-  <br>
-  Teoksen nimi:
-  <br>
-  <input name="tip_title" rows="1" size="60">
-  <br>
-  Url:
-  <br>
-  <input name="tip_url" rows="1" size="60">
-  <br>
-  <input type="submit" name="action" value="Lisää" class="button">
+    <br>
+    Kirjoittaja:
+    <br>
+    <input name="tip_name" rows="1" size="60">
+    <br>
+    Teoksen nimi:
+    <br>
+    <input name="tip_title" rows="1" size="60">
+    <br>
+    Url:
+    <br>
+    <input name="tip_url" rows="1" size="60">
+    <br>
+    <input type="submit" name="action" value="Lisää" class="button">
 </form>
 <br>
 <form action="/results" method="GET" onsubmit="return check_search (this)">
@@ -39,7 +38,7 @@
 
 <h3>Lukemattomat lukuvinkit:</h3>
 <hr>
-    {% for tip in unread_tips %}
+{% for tip in unread_tips %}
 <form action="/delete" method="POST" onsubmit="return delete_tip (this)">
     Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}
     <input type="hidden" value="{{tip[3]}}" name="tip_id">
@@ -49,9 +48,9 @@
 <hr>
 {% endfor %}
 <h3>Luetut lukuvinkit:</h3>
-    {% for tip in read_tips %}
+{% for tip in read_tips %}
 <form action="/delete" method="POST" onsubmit="return delete_tip (this)">
-    Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}, Luettu: {{tip[5]}} 
+    Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}, Luettu: {{tip[5]}}
     <input type="hidden" value="{{tip[3]}}" name="tip_id">
     <input type="submit" name="action" value="Poista" class="button">
     <input type="submit" name="action" value="Luettu / Ei luettu" class="button">
@@ -97,6 +96,7 @@
   function delete_tip(form){
     return true
   }
+
 </script>
 </body>
 </html>
