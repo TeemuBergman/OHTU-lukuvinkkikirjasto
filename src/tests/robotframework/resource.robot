@@ -5,7 +5,7 @@ Library  SeleniumLibrary
 *** Variables ***
 ${SERVER}  localhost:5000
 ${BROWSER}  headlesschrome
-${DELAY}  0.1 seconds
+${DELAY}  0 seconds
 ${HOME URL}  http://${SERVER}/
 # ${RESULTS URL}  http://${SERVER}/results?tip_name=${search}&action=Hae
 
@@ -20,7 +20,7 @@ Open And Configure Browser
     Set Selenium Speed  ${DELAY}
 
 Main Page Should Be Open
-    Title Should Be  Kirjaudu
+    Title Should Be  Lukuvinkit
 
 Go To Main Page
     Go To  ${HOME URL}

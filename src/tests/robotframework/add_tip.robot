@@ -14,59 +14,43 @@ ${password}  salasana
 
 *** Test Cases ***
 
-Go To Register
-    Go To Register
-    Title Should Be  Rekisteröidy
-
-Register And Login New User
+Register And Automatic Login
     Go To Register
     Title Should Be  Rekisteröidy
     Set User Email
     Set User Name
     Set User Password
-    Submit Registration 
-    Title Should Be  Kirjaudu
-
-    Set User Email
-    Set User Password
-    Submit Login
-    Title Should Be  Lukuvinkkejä
+    Submit Registration
+    Title Should Be  Lukuvinkit
+    Go to personal page
+    Title Should Be  Omat lukuvinkit
 
 Input New Tip
-    Set User Email
-    Set User Password
-    Submit Login
-    Title Should Be  Lukuvinkkejä
+    Go to personal page
+    Title Should Be  Omat lukuvinkit
     Set Tip Author
     Set Tip Title
     Set Tip URL
     Submit Tip
 
 Confirm New Tip
-    Set User Email
-    Set User Password
-    Submit Login
-    Title Should Be  Lukuvinkkejä
+    Go to personal page
+    Title Should Be  Omat lukuvinkit
     Search Author
     Submit Search
     ${response}    Get Text    result
     Should Be Equal As Strings  ${response}  Kirjoittaja: ${tip_author}_${number}, Teoksen nimi: ${tip_title}_${number}, URL: ${tip_url}/${word}
 
-Logout
-    Set User Email
-    Set User Password
-    Submit Login
-    Title Should Be  Lukuvinkkejä
-    Go To Logout
-    Title Should Be  Kirjaudu
-
 Delete Tip
-    Set User Email
-    Set User Password
-    Submit Login
-    Title Should Be  Lukuvinkkejä
+    Go to personal page
+    Title Should Be  Omat lukuvinkit
     Delete Tip
     Title Should Be  Delete
+
+Logout
+    Go To Logout
+    Title Should Be  Lukuvinkit
+    Wait Until Page Contains  Kirjaudu lukuvinkkisovellukseen
 
 *** Keywords ***
 Set Tip Author
@@ -108,9 +92,11 @@ Submit Registration
 Submit Login
     Click Button  Kirjaudu
 
+Go to personal page
+    Click Link  link:Oma sivu
+
 Go To Logout
-    Click Link  link:kirjaudu ulos
+    Click Link  link:Kirjaudu ulos
 
 Delete Tip
     Click Button  Poista
-
