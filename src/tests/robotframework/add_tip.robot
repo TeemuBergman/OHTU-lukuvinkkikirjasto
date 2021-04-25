@@ -41,6 +41,24 @@ Confirm New Tip
     ${response}    Get Text    result
     Should Be Equal As Strings  ${response}  Kirjoittaja: ${tip_author}_${number}, Teoksen nimi: ${tip_title}_${number}, URL: ${tip_url}/${word}
 
+Mark Tip As Read
+    Go to personal page
+    Title Should Be  Omat lukuvinkit
+    Submit Read
+    ${read_tips}    Get Text    read_tips
+    Should Be Equal As Strings  ${read_tips}  Teoksen nimi: ${tip_title}_${number}, Kirjoittaja: ${tip_author}_${number}, URL: ${tip_url}/${word},
+    Submit Read
+    ${notread_tips}    Get Text    notread_tips
+    Should Be Equal As Strings  ${notread_tips}  Teoksen nimi: ${tip_title}_${number}, Kirjoittaja: ${tip_author}_${number}, URL: ${tip_url}/${word}
+
+Go To Main Page And Back To Personal Page
+    Go to personal page
+    Title Should Be  Omat lukuvinkit
+    Click Frontpage
+    Title Should Be  Lukuvinkit
+    Go to personal page
+    Title Should Be  Omat lukuvinkit
+
 Delete Tip
     Go to personal page
     Title Should Be  Omat lukuvinkit
@@ -51,6 +69,8 @@ Logout
     Go To Logout
     Title Should Be  Lukuvinkit
     Wait Until Page Contains  Kirjaudu lukuvinkkisovellukseen
+
+
 
 *** Keywords ***
 Set Tip Author
@@ -100,3 +120,9 @@ Go To Logout
 
 Delete Tip
     Click Button  Poista
+
+Submit Read
+    Click Button  Luettu / Ei luettu
+
+Click Frontpage
+    Click Link  link:Etusivu
