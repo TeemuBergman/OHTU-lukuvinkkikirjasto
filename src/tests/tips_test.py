@@ -10,8 +10,6 @@ class DBWrapperStub:
         return True
 
     # kun varsinaine metodi on valmis muutetaan paluuarvo.
-    def display_all_tips(self, user_id):
-        return [('Arto Paasilinna', 'www.testi.fi', 'Testi')]
 
     # kun varsinaine metodi on valmis muutetaan paluuarvo.
     def search_by_writer_name(self, nimi, user_id):

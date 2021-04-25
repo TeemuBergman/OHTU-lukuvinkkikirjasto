@@ -39,20 +39,24 @@
 <h3>Lukemattomat lukuvinkit:</h3>
 <hr>
 {% for tip in unread_tips %}
-<form action="/delete" method="POST" onsubmit="return delete_tip (this)">
+<form action="/delete" method="POST">
+  <div id="notread_tips">
     Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}
+  </div>
     <input type="hidden" value="{{tip[3]}}" name="tip_id">
-    <input type="submit" name="action" value="Poista" class="button">
+    <input type="submit" name="action" value="Poista" class="button" onclick="return confirm_delete(this)">
     <input type="submit" name="action" value="Luettu / Ei luettu" class="button">
 </form>
 <hr>
 {% endfor %}
 <h3>Luetut lukuvinkit:</h3>
 {% for tip in read_tips %}
-<form action="/delete" method="POST" onsubmit="return delete_tip (this)">
-    Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}}, Luettu: {{tip[5]}}
+<form action="/delete" method="POST">
+    <div id="read_tips">
+      Teoksen nimi: {{tip[0]}}, Kirjoittaja: {{tip[1]}}, URL: {{tip[2]}},</div> Luettu: {{tip[5]}}
+
     <input type="hidden" value="{{tip[3]}}" name="tip_id">
-    <input type="submit" name="action" value="Poista" class="button">
+    <input type="submit" name="action" value="Poista" class="button" onclick="return confirm_delete(this)">
     <input type="submit" name="action" value="Luettu / Ei luettu" class="button">
 </form>
 <hr>
@@ -93,8 +97,13 @@
     }
     return true
   }
-  function delete_tip(form){
+
+  function confirm_delete(form){
+    if (confirm("Haluatko varmasti poistaa lukuvinkin?")){
     return true
+  }else {
+    return false
+  }
   }
 
 </script>

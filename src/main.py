@@ -57,7 +57,7 @@ def delete_tip():
     tips = Tips(DBWrapper(db), session["_user_id"])
     tip_id = request.form["tip_id"]
     tips.delete_tip(tip_id)
-    return render_template("delete.html")
+    return redirect("/add_tips")
 
 
 def check_tip():
