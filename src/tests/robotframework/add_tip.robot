@@ -63,7 +63,10 @@ Delete Tip
     Go to personal page
     Title Should Be  Omat lukuvinkit
     Delete Tip
-    Title Should Be  Delete
+    Handle Alert
+    Title Should Be  Omat lukuvinkit
+
+ 
 
 Logout
     Go To Logout
