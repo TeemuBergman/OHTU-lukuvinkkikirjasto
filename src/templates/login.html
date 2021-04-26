@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <title>Lukuvinkit</title>
     <style>
-        .thead_td {
-            background-color: #cccccc;
-            font-weight: bold;
-            padding: 3px;
+
+        .lista {    
+            display: grid;
+            grid-template-columns: 250px 150px 500px;
+            width: 900px;
+            background-color: #ffffff;
+            gap: 2px;
+
         }
 
-        td {
-            background-color: #eeeeee;
-            padding: 3px;
+        .listaheader {
+            background-color: #cccccc;
+            font-weight: bold;
+            padding: 4px;
+            border-radius: 4px;
         }
+
+        .listaitem {
+            background-color: #eeeeee;
+            padding: 4px;
+        }
+      
     </style>
 </head>
 <body>
@@ -42,21 +54,18 @@
 Eikö sinulla vielä ole käyttäjätunnusta? Tästä pääset <a href="/register" name="register">rekisteröitymään</a>!
 {% endif %}
 <h3>Kaikki lukuvinkit:</h3>
-<table width=900>
-    <thead>
-    <tr>
-        <td width=300 class=thead_td>Teoksen nimi</td>
-        <td width=200 class=thead_td>Kirjoittaja</td>
-        <td width=400 class=thead_td>URL</td>
-    </tr>
-    </thead>
+<div id="results">
+    <div class=lista>
+        <div class=listaheader>Teoksen nimi</div>
+        <div class=listaheader>Kirjoittaja</div>
+        <div class=listaheader>URL</div>
+    </div>
+    
     {% for tip in existing_tips %}
-    <tr>
-        <td> {{tip[0]}}</td>
-        <td> {{tip[1]}}</td>
-        <td> {{tip[2]}}</td>
-    </tr>
+    <div id="results" class="lista">
+        <div class=listaitem>{{tip[0]}}</div><div class=listaitem>{{tip[1]}}</div><div class=listaitem>{{tip[2]}}</div>
+    </div>
     {% endfor %}
-</table>
+</div>
 </body>
 </html>

@@ -5,19 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Results</title>
+    <style>
+
+        .lista {    
+            display: grid;
+            grid-template-columns: 250px 150px 500px;
+            width: 900px;
+            background-color: #ffffff;
+            gap: 2px;
+
+        }
+
+        .listaheader {
+            background-color: #cccccc;
+            font-weight: bold;
+            padding: 4px;
+            border-radius: 4px;
+        }
+
+        .listaitem {
+            background-color: #eeeeee;
+            padding: 4px;
+        }
+      
+    </style>
 </head>
 <body>
 <h1>Haun tulokset:</h1>
 <h3>Listatut lukuvinkit:</h3>
 <div id="results">
-    {% for tip in search_by_name %}
-    <hr>
-    <div id="result">
-        Kirjoittaja: {{tip[1]}}, Teoksen nimi: {{tip[0]}}, URL: {{tip[2]}}
+    <div class=lista>
+        <div class=listaheader>Teoksen nimi</div>
+        <div class=listaheader>Kirjoittaja</div>
+        <div class=listaheader>URL</div>
     </div>
-    <hr>
+
+    {% for tip in search_by_name %}
+    <div id="result"  class="lista">
+        <div class=listaitem>{{tip[1]}}</div><div class=listaitem>{{tip[0]}}</div><div class=listaitem>{{tip[2]}}</div>
+    </div>
     {% endfor %}
 </div>
+<br>
 <form action="/add_tips">
     <input type="submit" value="Edellinen näkymä"/>
 </form>
