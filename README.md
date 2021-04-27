@@ -14,6 +14,8 @@ Sovelluksen tarkoitus on pystyä tallettamaan erinäisiä lukuvinkkejä, sekä s
 
 [Loppuraportti](https://docs.google.com/document/d/1QKGBlKBjWdvmERDQaRFJ0YyxfSy0uT2hpfjtzI-Mo5g/edit#)
 
+[Robot Framework hyväksymisehdot](https://github.com/HJJHeinonen/OHTU-lukuvinkkikirjasto/tree/master/src/tests/robotframework)
+
 ### Definition of Done
 
 Yleisellä tasolla kuvatut laatuvaatimukset
