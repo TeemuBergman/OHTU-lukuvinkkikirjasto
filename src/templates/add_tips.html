@@ -71,7 +71,8 @@
 
 
 {% for tip in unread_tips %}
-<form action="/delete" method="POST"><input type="hidden" value="{{tip[3]}}" name="tip_id">
+<form action="/delete" method="POST">
+  <input type="hidden" value="{{tip[3]}}" name="tip_id">
 <div class="lista">
   <div id="notread_tips"  class="listaitem">{{tip[0]}}</div> 
   <div class=listaitem>{{tip[1]}}</div> 
@@ -101,7 +102,8 @@
     <div class=listaitem>{{tip[1]}}</div>
     <div class=listaitem>{{tip[2]}}</div>
     <div class="listaitem">{{tip[5]}}</div>
-    <div class="listaitem"><form action="/delete" method="POST"></form>
+    <div class="listaitem">
+      <form action="/delete" method="POST">
     <input type="hidden" value="{{tip[3]}}" name="tip_id">
     <input type="submit" name="action" value="Poista" class="button" onclick="return confirm_delete(this)">
     <input type="submit" name="action" value="Luettu / Ei luettu" class="button">

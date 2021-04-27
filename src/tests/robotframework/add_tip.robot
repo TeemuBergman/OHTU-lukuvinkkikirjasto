@@ -39,8 +39,8 @@ Confirm New Tip
     Search Author
     Submit Search
     ${response}    Get Text    result
-    Should Be Equal As Strings  ${response}  <div class=listaitem>${tip_author}_${number}</div><div class=listaitem>${tip_title}_${number}</div><div class=listaitem>${tip_url}/${word}</div>
-
+    ${compare}    Set Variable    ${tip_author}_${number}\n${tip_title}_${number}\n${tip_url}/${word}
+    Should Be Equal As Strings  ${response}  ${compare}
 Mark Tip As Read
     Go to personal page
     Title Should Be  Omat lukuvinkit
