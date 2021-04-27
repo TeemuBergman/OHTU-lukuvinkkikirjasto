@@ -12,6 +12,8 @@ Sovelluksen tarkoitus on pystyä tallettamaan erinäisiä lukuvinkkejä, sekä s
 
 [CI-palvelu](https://github.com/HJJHeinonen/OHTU-lukuvinkkikirjasto/actions/workflows/main.yml)
 
+[Loppuraportti](https://docs.google.com/document/d/1QKGBlKBjWdvmERDQaRFJ0YyxfSy0uT2hpfjtzI-Mo5g/edit#)
+
 ### Definition of Done
 
 Yleisellä tasolla kuvatut laatuvaatimukset
