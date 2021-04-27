@@ -39,17 +39,17 @@ Confirm New Tip
     Search Author
     Submit Search
     ${response}    Get Text    result
-    Should Be Equal As Strings  ${response}  Kirjoittaja: ${tip_author}_${number}, Teoksen nimi: ${tip_title}_${number}, URL: ${tip_url}/${word}
+    Should Be Equal As Strings  ${response}  <div class=listaitem>${tip_author}_${number}</div><div class=listaitem>${tip_title}_${number}</div><div class=listaitem>${tip_url}/${word}</div>
 
 Mark Tip As Read
     Go to personal page
     Title Should Be  Omat lukuvinkit
     Submit Read
     ${read_tips}    Get Text    read_tips
-    Should Be Equal As Strings  ${read_tips}  Teoksen nimi: ${tip_title}_${number}, Kirjoittaja: ${tip_author}_${number}, URL: ${tip_url}/${word},
+    Should Be Equal As Strings  ${read_tips}  ${tip_title}_${number}
     Submit Read
     ${notread_tips}    Get Text    notread_tips
-    Should Be Equal As Strings  ${notread_tips}  Teoksen nimi: ${tip_title}_${number}, Kirjoittaja: ${tip_author}_${number}, URL: ${tip_url}/${word}
+    Should Be Equal As Strings  ${notread_tips}  ${tip_title}_${number}
 
 Go To Main Page And Back To Personal Page
     Go to personal page
