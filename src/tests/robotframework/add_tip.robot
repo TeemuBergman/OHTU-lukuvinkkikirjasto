@@ -1,4 +1,4 @@
-*** Settings ***
+﻿*** Settings ***
 Resource  resource.robot
 Suite Setup  Open And Configure Browser
 Suite Teardown  Close Browser
@@ -13,7 +13,6 @@ ${name}  Testi Tunnus
 ${password}  salasana
 
 *** Test Cases ***
-
 Register And Automatic Login
     Go To Register
     Title Should Be  Rekisteröidy
@@ -41,6 +40,7 @@ Confirm New Tip
     ${response}    Get Text    result
     ${compare}    Set Variable    ${tip_author}_${number}\n${tip_title}_${number}\n${tip_url}/${word}
     Should Be Equal As Strings  ${response}  ${compare}
+
 Mark Tip As Read
     Go to personal page
     Title Should Be  Omat lukuvinkit
@@ -66,14 +66,10 @@ Delete Tip
     Handle Alert
     Title Should Be  Omat lukuvinkit
 
- 
-
 Logout
     Go To Logout
     Title Should Be  Lukuvinkit
     Wait Until Page Contains  Kirjaudu lukuvinkkisovellukseen
-
-
 
 *** Keywords ***
 Set Tip Author

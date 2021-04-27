@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, render_template, request, session
+﻿from flask import Blueprint, redirect, render_template, request, session
 from flask_login import login_required
 from .tips import Tips
 from . import db
@@ -39,7 +39,7 @@ def result():
     tip_name = request.args["tip_search"]
     formatted_searches = tips.search_by_writer_name(tip_name)
     if formatted_searches is None:
-        return render_template("error.html", message="Hakutulosten hakeminen epäonnistui.")
+        return render_template("error.html", message="Ei hakutuloksia.")
     return render_template("results.html", search_by_name=formatted_searches)
 
 
