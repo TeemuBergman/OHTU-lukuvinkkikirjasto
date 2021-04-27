@@ -74,7 +74,11 @@
 <form action="/delete" method="POST">
   <input type="hidden" value="{{tip[3]}}" name="tip_id">
 <div class="lista">
-  <div id="notread_tips"  class="listaitem">{{tip[0]}}</div> 
+  <div id="notread_tips"  class="listaitem">
+    <div>
+      {{tip[0]}}
+    </div>
+  </div> 
   <div class=listaitem>{{tip[1]}}</div> 
   <div class=listaitem>{{tip[2]}}</div>
   <div class=listaitem>&nbsp;</div>
